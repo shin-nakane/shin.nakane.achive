@@ -1,16 +1,11 @@
----
-layout: default
-title: ポートフォリオ | 中根進之介
----
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}" />
-  <script defer src="{{ '/script.js' | relative_url }}"></script>
+  <title>ポートフォリオ | 中根進之介</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
 
@@ -19,9 +14,10 @@ title: ポートフォリオ | 中根進之介
     <h1>中根進之介</h1>
     <nav>
       <a href="#about">About</a>
-      <a href="{{ '/projects/data-analysis/' | relative_url }}">Data Analysis</a>
-      <a href="{{ '/projects/iot/' | relative_url }}">IoT</a>
-      <a href="{{ '/projects/game/' | relative_url }}">Game</a>
+      <!-- 各カテゴリを独立ページへリンク -->
+      <a href="projects/data-analysis.html">Data Analysis</a>
+      <a href="projects/iot.html">IoT</a>
+      <a href="projects/game.html">Game</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -33,9 +29,68 @@ title: ポートフォリオ | 中根進之介
     <p>PythonやC/C++を用いた開発経験のほか、フロントエンドデザインにも挑戦しています。</p>
   </section>
 
-  <!-- Contact -->
+  <!-- データ分析 -->
+  <section id="data" class="section fadein">
+    <h2>📊 Data Analysis</h2>
+    <div class="works-container">
+      <div class="work-card">
+        <img src="images/gppmap 2025-06-23 0.16.00.png" alt="Data Visualization" />
+        <h3>作物データ可視化ツール</h3>
+        <p>PythonとMatplotlibで、環境変数と作物成長データを可視化。統計解析も実装。</p>
+        <!-- 詳細ページへ遷移 -->
+        <a href="projects/data-analysis.html">詳細を見る</a>
+      </div>
+      <div class="work-card">
+        <img src="https://via.placeholder.com/400x250" alt="Climate Analysis" />
+        <h3>気候データ分析ダッシュボード</h3>
+        <p>PandasとPlotlyを用いて、地域ごとの気候傾向をグラフ化。</p>
+        <a href="projects/data-analysis.html">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IoT -->
+  <section id="iot" class="section fadein">
+    <h2>🔧 IoT Projects</h2>
+    <div class="works-container">
+      <div class="work-card">
+        <img src="https://via.placeholder.com/400x250" alt="Raspberry Pi Project" />
+        <h3>Raspberry Pi 水分センサー制御</h3>
+        <p>Raspberry Pi PicoとArduCAMを用いて水分データと画像を取得・保存。</p>
+        <a href="projects/iot.html">詳細を見る</a>
+      </div>
+      <div class="work-card">
+        <img src="https://via.placeholder.com/400x250" alt="IoT Dashboard" />
+        <h3>リアルタイムIoTモニタリング</h3>
+        <p>センサー値をWebで可視化する軽量ダッシュボードを構築。</p>
+        <a href="projects/iot.html">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ゲーム開発 -->
+  <section id="game" class="section fadein">
+    <h2>🎮 Game Development</h2>
+    <div class="works-container">
+      <div class="work-card">
+        <img src="https://via.placeholder.com/400x250" alt="Game Project" />
+        <h3>2Dミニゲーム「Space Escape」</h3>
+        <p>JavaScriptで制作した2Dアクションゲーム。Canvas APIを使用。</p>
+        <a href="projects/game.html">詳細を見る</a>
+      </div>
+      <div class="work-card">
+        <img src="https://via.placeholder.com/400x250" alt="Unity Game" />
+        <h3>Unity3D環境シミュレーション</h3>
+        <p>作物生長モデルを再現したUnityベースのインタラクティブシミュレーション。</p>
+        <a href="projects/game.html">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 連絡先 -->
   <section id="contact" class="section fadein">
     <h2>Contact</h2>
+    <p>ご質問やお問い合わせは以下からお気軽にどうぞ。</p>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     <p>GitHub: <a href="https://github.com/ユーザー名" target="_blank">github.com/ユーザー名</a></p>
   </section>
@@ -47,3 +102,4 @@ title: ポートフォリオ | 中根進之介
 
 </body>
 </html>
+
