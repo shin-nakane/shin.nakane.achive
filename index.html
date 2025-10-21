@@ -4,17 +4,152 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ポートフォリオ | 中根進之介</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
 
+  <!-- Jekyll対応のCSSパス -->
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <script defer src="{{ '/script.js' | relative_url }}"></script>
+
+  <style>
+    /* --- 基本レイアウト --- */
+    body {
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      margin: 0;
+      line-height: 1.7;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header.header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #007acc;
+    }
+
+    /* --- セクション共通 --- */
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* --- カードレイアウト --- */
+    .works-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .work-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .work-card h3 {
+      margin: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .work-card p {
+      margin: 0 1rem 1.5rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .work-card a {
+      display: inline-block;
+      margin: 0 1rem 1.5rem;
+      padding: 0.5rem 1rem;
+      background: #007acc;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .work-card a:hover {
+      background: #005f99;
+    }
+
+    /* --- フッター --- */
+    footer {
+      background: #f0f0f0;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* --- レスポンシブ対応 --- */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 0.3rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .work-card h3 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
   <!-- ヘッダー -->
   <header class="header">
     <h1>中根進之介</h1>
     <nav>
       <a href="#about">About</a>
-      <!-- 各カテゴリを独立ページへリンク -->
       <a href="{{ '/projects/data-analysis/' | relative_url }}">Data Analysis</a>
       <a href="{{ '/projects/iot/' | relative_url }}">IoT</a>
       <a href="{{ '/projects/game/' | relative_url }}">Game</a>
@@ -22,24 +157,24 @@
     </nav>
   </header>
 
-  <!-- 自己紹介 -->
-  <section id="about" class="section fadein">
+  <!-- About -->
+  <section id="about">
     <h2>About Me</h2>
     <p>北海道大学農学部で、データ分析・IoT技術・Webデザインを学びながら、エンジニアとしてのスキルを磨いています。</p>
     <p>PythonやC/C++を用いた開発経験のほか、フロントエンドデザインにも挑戦しています。</p>
   </section>
 
-  <!-- データ分析 -->
-  <section id="data" class="section fadein">
+  <!-- Data Analysis -->
+  <section id="data">
     <h2>📊 Data Analysis</h2>
     <div class="works-container">
       <div class="work-card">
-        <img src="images/gppmap 2025-06-23 0.16.00.png" alt="Data Visualization" />
+        <img src="{{ '/images/gppmap 2025-06-23 0.16.00.png' | relative_url }}" alt="Data Visualization" />
         <h3>作物データ可視化ツール</h3>
         <p>PythonとMatplotlibで、環境変数と作物成長データを可視化。統計解析も実装。</p>
-        <!-- 詳細ページへ遷移 -->
         <a href="{{ '/projects/data-analysis/' | relative_url }}">詳細を見る</a>
       </div>
+
       <div class="work-card">
         <img src="https://via.placeholder.com/400x250" alt="Climate Analysis" />
         <h3>気候データ分析ダッシュボード</h3>
@@ -50,7 +185,7 @@
   </section>
 
   <!-- IoT -->
-  <section id="iot" class="section fadein">
+  <section id="iot">
     <h2>🔧 IoT Projects</h2>
     <div class="works-container">
       <div class="work-card">
@@ -59,6 +194,7 @@
         <p>Raspberry Pi PicoとArduCAMを用いて水分データと画像を取得・保存。</p>
         <a href="{{ '/projects/iot/' | relative_url }}">詳細を見る</a>
       </div>
+
       <div class="work-card">
         <img src="https://via.placeholder.com/400x250" alt="IoT Dashboard" />
         <h3>リアルタイムIoTモニタリング</h3>
@@ -68,8 +204,8 @@
     </div>
   </section>
 
-  <!-- ゲーム開発 -->
-  <section id="game" class="section fadein">
+  <!-- Game -->
+  <section id="game">
     <h2>🎮 Game Development</h2>
     <div class="works-container">
       <div class="work-card">
@@ -78,6 +214,7 @@
         <p>JavaScriptで制作した2Dアクションゲーム。Canvas APIを使用。</p>
         <a href="{{ '/projects/game/' | relative_url }}">詳細を見る</a>
       </div>
+
       <div class="work-card">
         <img src="https://via.placeholder.com/400x250" alt="Unity Game" />
         <h3>Unity3D環境シミュレーション</h3>
@@ -87,18 +224,16 @@
     </div>
   </section>
 
-  <!-- 連絡先 -->
-  <section id="contact" class="section fadein">
+  <!-- Contact -->
+  <section id="contact">
     <h2>Contact</h2>
     <p>ご質問やお問い合わせは以下からお気軽にどうぞ。</p>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     <p>GitHub: <a href="https://github.com/ユーザー名" target="_blank">github.com/ユーザー名</a></p>
   </section>
 
-  <!-- フッター -->
-  <footer class="footer">
+  <footer>
     <p>© 2025 Shinnosuke Nakane</p>
   </footer>
-
 </body>
 </html>
