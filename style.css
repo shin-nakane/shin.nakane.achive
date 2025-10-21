@@ -6,6 +6,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* ヘッダー */
 .header {
   background: #111;
   color: #fff;
@@ -28,16 +29,18 @@ body {
   color: #00bfff;
 }
 
-.section {
+/* セクション */
+.section, section {
   padding: 80px 10%;
   text-align: center;
 }
-.section h2 {
+.section h2, section h2 {
   font-size: 2em;
   margin-bottom: 30px;
   color: #111;
 }
 
+/* 作品カード */
 .works-container {
   display: flex;
   flex-wrap: wrap;
@@ -60,10 +63,32 @@ body {
 .work-card img {
   width: 100%;
   height: auto;
-  object-fit: cover;
   border-radius: 10px;
 }
+.work-card h3 {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+.work-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0078ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.work-card a:hover {
+  text-decoration: underline;
+}
 
+/* フッター */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* フェードイン効果 */
 .fadein {
   opacity: 0;
   transform: translateY(30px);
@@ -74,22 +99,17 @@ body {
   transform: translateY(0);
 }
 
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
+/* モバイル対応 */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     text-align: center;
   }
   .header nav a {
+    display: inline-block;
     margin: 10px;
   }
-  .section {
+  .section, section {
     padding: 60px 5%;
   }
 }

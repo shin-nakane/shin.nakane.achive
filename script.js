@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const fadeEls = document.querySelectorAll('.fadein');
   const onScroll = () => {
     const trigger = window.innerHeight * 0.8;
@@ -8,5 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
   window.addEventListener('scroll', onScroll);
-  onScroll(); // 初回表示時もチェック
+  onScroll(); // 最初の読み込み時にも適用
 });
