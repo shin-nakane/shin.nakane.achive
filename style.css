@@ -45,13 +45,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 30px;
 }
 .work-card {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -61,6 +63,8 @@ body {
 }
 .work-card img {
   width: 100%;
+  height: auto;
+  object-fit: cover;
   border-radius: 10px;
 }
 .work-card h3 {
@@ -95,4 +99,19 @@ body {
 .fadein.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --- モバイル対応 --- */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header nav a {
+    display: inline-block;
+    margin: 10px;
+  }
+  .section {
+    padding: 60px 5%;
+  }
 }
