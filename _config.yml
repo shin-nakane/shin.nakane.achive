@@ -1,3 +1,12 @@
+# サイト基本情報
 title: 中根進之介ポートフォリオ
-baseurl: "" # GitHub Pages の場合は空でOK
-url: "https://shin-nakane.github.io"
+email: your.email@example.com
+description: 中根進之介のデータ分析、IoT、ゲーム開発に関するポートフォリオサイト
+url: "https://shin-nakane.github.io" # ご指定のURL
+baseurl: "" # ユーザーページなので空でOK
+
+# Jekyllの設定
+markdown: kramdown
+theme: minima # Jekyllの動作に必要な基本設定を補完
+plugins:
+  - jekyll-feed

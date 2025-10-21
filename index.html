@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ポートフォリオ | 中根進之介</title>
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-  <script defer src="{{ '/script.js' | relative_url }}"></script>
-</head>
-<body>
+---
+layout: default
+title: ポートフォリオ | 中根進之介
+---
 
-  <!-- ヘッダー -->
-  <header class="header">
-    <h1>中根進之介</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="{{ '/projects/data-analysis/' | relative_url }}">Data Analysis</a>
-      <a href="{{ '/projects/iot/' | relative_url }}">IoT</a>
-      <a href="{{ '/projects/game/' | relative_url }}">Game</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- About -->
   <section id="about" class="fadein">
     <h2>About Me</h2>
     <p>北海道大学農学部で、データ分析・IoT技術・Webデザインを学びながら、エンジニアとしてのスキルを磨いています。</p>
     <p>PythonやC/C++を用いた開発経験のほか、フロントエンドデザインにも挑戦しています。</p>
   </section>
 
-  <!-- Data Analysis -->
   <section id="data" class="fadein">
     <h2>📊 Data Analysis</h2>
     <div class="works-container">
@@ -48,7 +28,6 @@
     </div>
   </section>
 
-  <!-- IoT -->
   <section id="iot" class="fadein">
     <h2>🔧 IoT Projects</h2>
     <div class="works-container">
@@ -68,7 +47,6 @@
     </div>
   </section>
 
-  <!-- Game -->
   <section id="game" class="fadein">
     <h2>🎮 Game Development</h2>
     <div class="works-container">
@@ -88,17 +66,9 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="fadein">
     <h2>Contact</h2>
     <p>ご質問やお問い合わせは以下からお気軽にどうぞ。</p>
     <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
     <p>GitHub: <a href="https://github.com/ユーザー名" target="_blank">github.com/ユーザー名</a></p>
   </section>
-
-  <footer>
-    <p>© 2025 Shinnosuke Nakane</p>
-  </footer>
-
-</body>
-</html>

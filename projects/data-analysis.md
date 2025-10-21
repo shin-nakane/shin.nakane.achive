@@ -1,12 +1,20 @@
 ---
 layout: default
-title: 📊 Data Analysis
+title: データ分析プロジェクト詳細 | 中根進之介
 permalink: /projects/data-analysis/
 ---
 
-# 📊 Data Analysis
+# データ分析プロジェクト詳細
 
-PythonとMatplotlibを使い、環境データと作物生長を可視化するツールを開発しました。  
-- データ解析：Pandas / NumPy  
-- 可視化：Matplotlib / Seaborn  
-- 主な成果：[GitHubリポジトリ](https://github.com/ユーザー名/data-visualizer)
+## 作物データ可視化ツール
+
+このプロジェクトでは、Pythonのデータ分析ライブラリ（Pandas, NumPy）と可視化ライブラリ（Matplotlib, Seaborn）を使用し、様々な環境変数（温度、湿度、日照時間）と特定の作物の生長データを統合的に分析しました。
+
+**主な機能:**
+* 時系列データのトレンド分析
+* 変数間の相関解析
+* 対話的なグラフ生成（Jupyter Notebook）
+
+## 気候データ分析ダッシュボード
+
+（ここに詳細なマークダウンコンテンツを記述します。画像やコードブロックなどもマークダウンで記述可能です。）
