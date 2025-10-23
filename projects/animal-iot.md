@@ -8,6 +8,10 @@ permalink: /projects/animal-iot/
 
 野生動物を調査するためのシステムを開発しました。
 
+使用したもの<br>
+・Arduino nano<br>
+・PIRセンサ<br>
+・Arducam
 
 
 ## VISIT
