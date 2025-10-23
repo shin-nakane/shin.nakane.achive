@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 野生動物調査システム | 中根進之介
-permalink: /projects/animal-iot/
+title: ゲーム開発 | 中根進之介
+permalink: /projects/game/
 ---
 
 #研究内容

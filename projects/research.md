@@ -1,10 +1,10 @@
 ---
 layout: default
-title: データ分析プロジェクト詳細 | 中根進之介
+title: 研究内容 | 中根進之介
 permalink: /projects/research/
 ---
 
-#研究内容
+# 研究内容
 
 シミュレーションモデルを用いて陸域生態系における物質循環について研究しています。
 シミュレーションモデルは日本を代表する陸域生態系モデルである(VISITVegetation Integrative SImulator for Tarce gases)
