@@ -4,11 +4,10 @@ title: 野生動物調査システム | 中根進之介
 permalink: /projects/animal-iot/
 ---
 
-#研究内容
+#マイコンを用いた野生動物の調査
 
-シミュレーションモデルを用いて陸域生態系における物質循環について研究しています。
-シミュレーションモデルは日本を代表する陸域生態系モデルである(VISITVegetation Integrative SImulator for Tarce gases)
-を使用しています。VISITはCによって記述されたプログラムにより構成されています。
+野生動物を調査するためのシステムを開発しました。
+
 
 
 ## VISIT
