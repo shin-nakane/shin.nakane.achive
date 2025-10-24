@@ -31,6 +31,7 @@ body {
 
 /* セクション（PCデフォルト） */
 .section, section {
+  /* ⭐修正: 左右の余白は固定値で設定し、中央寄せを works-container に任せる⭐ */
   padding: 80px 50px; 
   text-align: center;
   box-sizing: border-box;
@@ -53,9 +54,10 @@ body {
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   
+  /* ⭐修正: 高さ揃え（PC）とボタン下揃え（モバイル/PC）の準備⭐ */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; /* コンテンツを上揃えに */
 }
 .work-card:hover {
   transform: translateY(-8px);
@@ -78,6 +80,7 @@ body {
 }
 .work-card a {
   display: inline-block;
+  /* ⭐修正: ボタンを必ず下部に配置（高さが揃う/揃わないに関わらず）⭐ */
   margin-top: auto; 
   color: #0078ff;
   text-decoration: none;
@@ -87,7 +90,7 @@ body {
   text-decoration: underline;
 }
 
-/* フッター */
+/* フッター（変更なし） */
 footer {
   background: #111;
   color: #fff;
@@ -95,7 +98,7 @@ footer {
   padding: 20px;
 }
 
-/* フェードイン効果 */
+/* フェードイン効果（変更なし） */
 .fadein {
   opacity: 0;
   transform: translateY(30px);
@@ -106,7 +109,7 @@ footer {
   transform: translateY(0);
 }
 
-/* Markdown本文用コンテナ */
+/* Markdown本文用コンテナ（変更なし） */
 .content {
   max-width: 900px;
   margin: 0 auto;
@@ -133,7 +136,7 @@ footer {
   text-decoration: underline;
 }
 
-/* トップページ専用デザイン */
+/* ===== トップページ専用デザイン（変更なし） ===== */
 .home {
   max-width: 1200px;
   margin: 0 auto;
@@ -148,7 +151,7 @@ img.img-fluid {
 }
 
 /* ---------------------------------------------------- */
-/* メディアクエリ（PC/モバイルのレイアウト調整） */
+/* ⭐ メディアクエリ（PC/モバイルのレイアウト調整） ⭐ */
 /* ---------------------------------------------------- */
 
 /* モバイル・タブレット（max-width: 1023px） */
@@ -161,7 +164,6 @@ img.img-fluid {
   margin: 0 auto;
   padding: 0; 
   box-sizing: border-box; 
-  justify-items: center; /* ⭐追加: 1枚でも中央寄せ */
 }
 
 /* モバイル対応（max-width: 768px） */
@@ -175,6 +177,7 @@ img.img-fluid {
     margin: 10px;
   }
   .section, section {
+    /* ⭐修正: モバイルのパディングを最小化してカード幅を最大化⭐ */
     padding-left: 10px; 
     padding-right: 10px;
     padding-top: 60px;
@@ -183,10 +186,11 @@ img.img-fluid {
 }
 
 @media (max-width: 1023px) {
+  /* ⭐修正: カード幅を画面いっぱいに広げる（!importantで強制適用）⭐ */
   .works-container .work-card {
     width: 100% !important; 
     max-width: 100% !important;
-    height: auto !important; 
+    height: auto !important; /* スマホではコンテンツに合わせた高さを維持 */
   }
 }
 
@@ -195,18 +199,22 @@ img.img-fluid {
   .works-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
+    gap: 60px; 
+    
+    /* ⭐修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto; /* ⭐PC版の中央寄せのコア修正⭐ */
+    
     padding: 0;
     justify-content: center; 
-    justify-items: center; /* ⭐追加: 1枚だけでも中央配置 */
   }
-
+  
+  /* カード自体のスタイル */
   .works-container .work-card {
     max-width: 100%;
     width: 100%;
     margin: 0;
+    /* ⭐修正: PC版は高さを揃える⭐ */
     height: 100%; 
   }
 }
