@@ -22,17 +22,16 @@ permalink: /projects/animal-iot/
 PIRセンサは赤外線を常にモニターし、モニター範囲内の状態に変化があれば１をなければ０を返します。
 これを用いて、赤外線の動きを検知したらLED点灯しカメラで撮影をするようにして、
 自動で近づいてきた動物を撮影するシステムを開発しました。
-
+<!-- 動画を挿入 -->
+<div class="video-wrapper">
+  <video controls playsinline poster="{{ '/images/video-poster.png' | relative_url }}">
+    <source src="{{ '/assets/videos/your-video.mp4' | relative_url }}" type="video/mp4">
+    ブラウザが video タグをサポートしていません。
+  </video>
+</div>
 合計で５日間ほど実際に設置して調査をしましたが実際に動物の様子を写真に収めることはできませんでした。
 考察として
 
 
 ## VISIT
 <img class="img-fluid" src="/shin.nakane.achive/images/visit.png">
-VISIT のオリジナルでは陸域における炭素、窒素、そして水の循環をシミュレーションします。
-
-現在私はこの循環に新たにリンの循環を導入したVISIT-CNPモデルの開発を行っています。
-リンは窒素とともに植物の成長を制限する主要な要因であり、炭素循環に大きな影響を与えます。
-さらにリンと窒素は人間活動によって、循環のバランスが大きく変化しています。
-農業の近代化に伴い、化学肥料の利用が世界で爆発的に増えました。
-（ここに詳細なマークダウンコンテンツを記述します。画像やコードブロックなどもマークダウンで記述可能です。）
