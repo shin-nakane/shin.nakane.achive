@@ -29,14 +29,17 @@ body {
   color: #00bfff;
 }
 
-/* セクション（PCデフォルト - 中央寄せの干渉を防ぐため左右パディングを0に） */
+/* セクション（PCデフォルト - 中央寄せのコア修正） */
 .section, section {
-  /* ⭐修正: 左右パディングを0にし、works-containerに中央寄せを任せる⭐ */
+  /* ⭐修正: 左右パディングを削除し、コンテンツ領域を最大幅で中央寄せ⭐ */
   padding: 80px 0; 
   text-align: center;
   box-sizing: border-box;
   width: 100%; 
-  margin: 0; 
+  
+  /* ⭐PC中央寄せの新しいコア設定⭐ */
+  max-width: 1200px; /* コンテンツ全体の最大幅を設定 */
+  margin: 0 auto;    /* 画面内でセクション自体を中央寄せ */
 }
 .section h2, section h2 {
   font-size: 2em;
@@ -79,7 +82,7 @@ body {
 }
 .work-card a {
   display: inline-block;
-  margin-top: auto; /* ボタン下揃え */
+  margin-top: auto; 
   color: #0078ff;
   text-decoration: none;
   font-weight: bold;
@@ -108,8 +111,9 @@ footer {
   flex-direction: column;
   gap: 30px; 
   align-items: center;
+  /* ⭐修正: sectionが中央寄せされるため、works-containerは幅いっぱいでOK⭐ */
   width: 100%; 
-  margin: 0 auto;
+  margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
 }
@@ -138,7 +142,7 @@ footer {
   .works-container .work-card {
     width: 100% !important; 
     max-width: 100% !important;
-    height: auto !important; /* コンテンツに応じた高さを維持 */
+    height: auto !important; 
   }
 }
 
@@ -149,9 +153,9 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
     
-    /* ⭐コア修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
-    max-width: 1000px; 
-    margin: 0 auto; /* ✅ 中央寄せの最終手段 */
+    /* ⭐修正: sectionが中央寄せを担うため、works-containerは幅とマージンをリセット⭐ */
+    max-width: 100%; /* 親要素(section)の幅いっぱいに広がる */
+    margin: 0;      /* 中央寄せはsectionが担う */
     
     padding: 0;
     justify-content: center; 
@@ -162,6 +166,6 @@ footer {
     max-width: 100%;
     width: 100%;
     margin: 0;
-    height: 100%; /* PC版は高さを揃える */
+    height: 100%; 
   }
 }
