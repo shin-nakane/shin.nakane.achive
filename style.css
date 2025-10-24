@@ -165,6 +165,25 @@ img.img-fluid {
 }
 
 /* ---------------------------------------------------- */
+/* ⭐ モバイル対応のセクションパディングを調整 ⭐ */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header nav a {
+    display: inline-block;
+    margin: 10px;
+  }
+  .section, section {
+    /* ⭐修正点: モバイルでの左右パディングを固定値に調整⭐ */
+    padding: 60px 20px; /* 例: 左右20pxの余白に設定 */
+  }
+}
+
+
+/* ---------------------------------------------------- */
 /* ⭐ ワークスコンテナのレイアウト（最終整理版） ⭐ */
 /* ---------------------------------------------------- */
 
@@ -174,15 +193,20 @@ img.img-fluid {
   flex-direction: column;
   gap: 30px; 
   align-items: center;
+  /* ⭐追加: works-container 自体も横幅いっぱいに使う⭐ */
+  width: 100%; 
   margin: 0 auto;
+  /* ⭐調整: works-container 自体の左右パディングも少し調整⭐ */
+  padding: 0 10px; /* 画面端からのわずかな余白 */
+  box-sizing: border-box; /* paddingを含めて幅を計算 */
 }
 .works-container .work-card {
-  /* ⭐修正点: モバイルでのカードの最大幅を広げます⭐ */
-  max-width: 500px; 
+  /* ⭐調整: max-widthを画面幅に合わせて柔軟に⭐ */
+  max-width: 100%; /* 親要素 (works-container) の幅いっぱいに広がる */
   width: 100%;
 }
 
-/* PC表示 (min-width: 1024px) - 2列レイアウトを適用 (変更なし) */
+/* PC表示 (min-width: 1024px) - 変更なし */
 @media (min-width: 1024px) {
   .works-container {
     display: grid;
