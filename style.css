@@ -29,9 +29,9 @@ body {
   color: #00bfff;
 }
 
-/* セクション */
+/* セクション（PCデフォルト） */
 .section, section {
-  padding: 80px 10%;
+  padding: 80px 10%; 
   text-align: center;
 }
 .section h2, section h2 {
@@ -50,7 +50,7 @@ body {
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   
-  /* ⭐修正点: flexを設定し、コンテンツを上揃えにする⭐ */
+  /* ⭐修正: flexを設定し、コンテンツを上揃えにする⭐ */
   display: flex;
   flex-direction: column;
   justify-content: flex-start; 
@@ -108,21 +108,6 @@ footer {
   transform: translateY(0);
 }
 
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .header nav a {
-    display: inline-block;
-    margin: 10px;
-  }
-  .section, section {
-    padding: 60px 5%;
-  }
-}
-
 /* Markdown本文用コンテナ */
 .content {
   max-width: 900px;
@@ -165,8 +150,22 @@ img.img-fluid {
 }
 
 /* ---------------------------------------------------- */
-/* ⭐ モバイル対応のセクションパディングを調整 ⭐ */
+/* ⭐ メディアクエリ（PC/モバイルのレイアウト調整） ⭐ */
 /* ---------------------------------------------------- */
+
+/* モバイル・タブレット（max-width: 1023px） */
+.works-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; 
+  align-items: center;
+  width: 100%; 
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box; 
+}
+
+/* モバイル対応（max-width: 768px） */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -177,71 +176,49 @@ img.img-fluid {
     margin: 10px;
   }
   .section, section {
-    /* ⭐修正点: モバイルでの左右パディングを固定値に調整⭐ */
-    padding: 60px 20px; /* 例: 左右20pxの余白に設定 */
+    /* ⭐修正: 左右パディングを固定値に調整してコンテンツ領域を最大化⭐ */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 
-
-/* ---------------------------------------------------- */
-/* ⭐ ワークスコンテナのレイアウト（最終整理版） ⭐ */
-/* ---------------------------------------------------- */
-
-/* モバイル・タブレット（デフォルトの1列表示） */
-.works-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px; 
-  align-items: center;
-  /* ⭐追加: works-container 自体も横幅いっぱいに使う⭐ */
-  width: 100%; 
-  margin: 0 auto;
-  /* ⭐調整: works-container 自体の左右パディングも少し調整⭐ */
-  padding: 0 10px; /* 画面端からのわずかな余白 */
-  box-sizing: border-box; /* paddingを含めて幅を計算 */
-}
-.works-container .work-card {
-  /* ⭐調整: max-widthを画面幅に合わせて柔軟に⭐ */
-  max-width: 100%; /* 親要素 (works-container) の幅いっぱいに広がる */
-  width: 100%;
-}
-
-/* PC表示 (min-width: 1024px) - 変更なし */
-@media (min-width: 1024px) {
-  .works-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-    max-width: 1000px;
-    padding: 0;
-    justify-content: center;
-  }
-  
-  .works-container .work-card {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    height: 100%;
-  }
-}
-
-/* ---------------------------------------------------- */
-/* ⭐ モバイル版ワークカードの幅の最終調整 ⭐ */
-/* ---------------------------------------------------- */
 @media (max-width: 1023px) {
-  /* .works-containerのpaddingを考慮し、cardのmax-widthを調整 */
+  /* ⭐修正: カード幅を画面いっぱいに広げる（!importantで強制適用）⭐ */
   .works-container .work-card {
-    /* width: 100% と max-width: 100% を再適用し、上書きを確実にする */
     width: 100% !important; 
     max-width: 100% !important; 
   }
 }
 
-/* 768px以下のセクションのpaddingも再確認 */
-@media (max-width: 768px) {
+/* PC表示 (min-width: 1024px) - 2列レイアウト */
+@media (min-width: 1024px) {
   .section, section {
-    /* 左右のパディングを減らして、コンテンツ領域を広げる */
-    padding-left: 15px;
-    padding-right: 15px;
+    /* PCのセクションの左右パディングを調整 */
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 1400px; /* コンテンツ領域を制限 */
+    margin: 0 auto;
+  }
+
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px; 
+    /* ⭐修正: コンテナ自体の最大幅を制限し、中央寄せ⭐ */
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 0;
+    justify-content: center; 
+  }
+  
+  /* カード自体のスタイル */
+  .works-container .work-card {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    /* ⭐修正: グリッド内のカードの高さを揃える⭐ */
+    height: 100%; 
   }
 }
