@@ -224,3 +224,24 @@ img.img-fluid {
     height: 100%;
   }
 }
+
+/* ---------------------------------------------------- */
+/* ⭐ モバイル版ワークカードの幅の最終調整 ⭐ */
+/* ---------------------------------------------------- */
+@media (max-width: 1023px) {
+  /* .works-containerのpaddingを考慮し、cardのmax-widthを調整 */
+  .works-container .work-card {
+    /* width: 100% と max-width: 100% を再適用し、上書きを確実にする */
+    width: 100% !important; 
+    max-width: 100% !important; 
+  }
+}
+
+/* 768px以下のセクションのpaddingも再確認 */
+@media (max-width: 768px) {
+  .section, section {
+    /* 左右のパディングを減らして、コンテンツ領域を広げる */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
