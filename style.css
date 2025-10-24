@@ -29,6 +29,30 @@ body {
 .header nav a:hover {
   color: #00bfff;
 }
+
+/* --- スマホで押した後の青色固定を防ぐ設定 --- */
+.header nav a {
+  -webkit-tap-highlight-color: transparent; /* iPhone/Safariの青いハイライトを無効化 */
+}
+
+.header nav a:focus {
+  color: inherit;  /* フォーカス時も元の色を維持 */
+  outline: none;   /* 枠線を消す */
+}
+
+@media (hover: none) {
+  /* スマホ・タブレットなどhoverがない環境ではfocusスタイルを無効化 */
+  .header nav a:focus {
+    color: inherit !important;
+  }
+}
+
+
+
+
+
+
+
 /* スクロール時に縮むスタイル */
 .header.shrink {
   padding: 8px 25px;        /* 高さを小さく */
