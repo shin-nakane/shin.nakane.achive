@@ -10,3 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   onScroll(); // 最初の読み込み時にも適用
 });
+
+
+
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 50) { // 50px以上スクロールしたら縮む
+    header.classList.add('shrink');
+  } else {
+    header.classList.remove('shrink');
+  }
+});

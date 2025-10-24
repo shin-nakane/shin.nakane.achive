@@ -17,6 +17,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: all 0.3s ease;
 }
 .header nav a {
   color: #fff;
@@ -27,6 +28,11 @@ body {
 }
 .header nav a:hover {
   color: #00bfff;
+}
+/* スクロール時に縮むスタイル */
+.header.shrink {
+  padding: 8px 30px;        /* 高さを小さく */
+  background: #000;         /* 少し濃くしても良い */
 }
 
 /* セクション（PCデフォルト） */
