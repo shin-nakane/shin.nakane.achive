@@ -24,8 +24,8 @@ PIRセンサは赤外線を常にモニターし、モニター範囲内の状�
 自動で近づいてきた動物を撮影するシステムを開発しました。
 <!-- 動画を挿入 -->
 <div class="video-wrapper">
-  <video controls playsinline poster="{{ '/images/video-poster.png' | relative_url }}">
-    <source src="{{ '/assets/videos/your-video.mp4' | relative_url }}" type="video/mp4">
+  <video controls playsinline poster="{{ '/images/animal-iot.png' | relative_url }}">
+    <source src="{{ '/videos/animal-iot.mp4' | relative_url }}" type="video/mp4">
     ブラウザが video タグをサポートしていません。
   </video>
 </div>
@@ -40,5 +40,4 @@ PIRセンサは赤外線を常にモニターし、モニター範囲内の状�
 
 最後にカラスがやってくることを想定して、カラスよけの音を鳴らすシステムを加えて、終了しました。
 
-## VISIT
-<img class="img-fluid" src="/shin.nakane.achive/images/visit.png">
+

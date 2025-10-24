@@ -15,6 +15,7 @@ permalink: /projects/research/
 <img class="img-fluid" src="/shin.nakane.achive/images/visit.png">
 VISIT のオリジナルでは陸域における炭素、窒素、そして水の循環をシミュレーションします。
 植物と土壌を複数のボックスにわけ、各物質のボックス内の量やボックス間の移動量を計算します。
+全球の計算では地球を緯度方向に360分割、経度方向に720分割の合計
 VISITはCによって記述されたプログラムにより構成されています。
 
 ## VISIT-CNP
