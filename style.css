@@ -40,13 +40,7 @@ body {
   color: #111;
 }
 
-/* 作品カード */
-.works-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
+
 .work-card {
   background: #fff;
   border-radius: 16px;
@@ -156,28 +150,6 @@ img.img-fluid {
   margin: 0 auto;
 }
 
-/* === PC・スマホでの余白を調整 === */
-
-/* ---- PCで #data セクションのカードを2列に並べる ---- */
-@media (min-width: 1024px) {
-  /* data セクション内の works-container にのみ適用 */
-  #data .works-container {
-    justify-content: flex-start; /* 左から詰める */
-  }
-
-  /* 2列表示（間隔30px を考慮して幅を調整） */
-  #data .works-container .work-card {
-    flex: 0 0 calc(50% - 15px); /* 幅の固定：50% - ギャップ半分 */
-    max-width: calc(50% - 15px);
-    width: calc(50% - 15px);
-  }
-
-  /* 余白（上下）のバランスを調整したければ下記を有効化 */
-  #data .work-card {
-    margin-bottom: 30px;
-  }
-}
-
 
 /* ---------- すべての works-container に2列レイアウトを適用 ---------- */
 @media (min-width: 1024px) {
@@ -204,4 +176,46 @@ img.img-fluid {
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ---------- すべての works-container に2列レイアウトを適用 ---------- */
+@media (min-width: 1024px) {
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 各列の最小幅300px、最大1fr */
+    gap: 40px; /* カード間の余白 */
+    justify-content: center; /* 中央寄せ */
+    align-items: start;
+  }
+
+  .works-container .work-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .works-container .work-card img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* スマホ・タブレットでは1列に戻す */
+@media (max-width: 1023px) {
+  .works-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
