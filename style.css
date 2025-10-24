@@ -179,66 +179,29 @@ img.img-fluid {
 }
 
 
-/* === HTML構造修正後に適用する上書き（PCで2列にする） === */
-
-/* ボックス計算を安定させる */
-#data .works-container,
-#data .works-container .work-card {
-  box-sizing: border-box;
-}
-
-/* モバイルは既存の挙動に任せる */
+/* ---------- すべての works-container に2列レイアウトを適用 ---------- */
 @media (min-width: 1024px) {
-  /* works-container が横並びになることを再確認 */
-  #data .works-container {
-    display: flex;           /* 既にあるはずだが確実に */
-    flex-wrap: wrap;
-    gap: 30px;               /* 既存と合わせる */
-    align-items: stretch;
-    justify-content: flex-start;
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
+    gap: 30px;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* 2列表示：ギャップを考慮して幅を指定 */
-  #data .works-container .work-card {
-    /* 既存の max-width:320px を上書きして2列にする */
-    flex: 0 0 calc(50% - 15px); /* 50% - gap/2 */
-    max-width: calc(50% - 15px);
-    width: calc(50% - 15px);
-    margin: 0; /* 不要なマージンがあれば潰す */
+  .works-container .work-card {
+    max-width: none;
+    width: 100%;
+    flex: none;
+    margin: 0;
   }
 }
 
-/* さらに幅が大きいとき（例：非常に広いスクリーン） の微調整（任意） */
-@media (min-width: 1400px) {
-  #data .works-container .work-card {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-    width: calc(50% - 20px);
-  }
-}
-
-/* ---------- 強制2列レイアウト（#data セクション専用） ---------- */
-#data .works-container { 
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important; /* PCで2列 */
-  gap: 30px !important;
-  align-items: start !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-/* work-card の幅制限を解除して grid に馴染ませる */
-#data .works-container .work-card {
-  max-width: none !important;
-  width: 100% !important;
-  flex: none !important;
-  margin: 0 !important;
-}
-
-/* PC判定（念のため） */
+/* スマホ・タブレットでは1列に戻す */
 @media (max-width: 1023px) {
-  /* タブレット・スマホでは1列に戻す */
-  #data .works-container {
-    grid-template-columns: 1fr !important;
+  .works-container {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
