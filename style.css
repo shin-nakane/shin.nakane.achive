@@ -29,13 +29,12 @@ body {
   color: #00bfff;
 }
 
-/* セクション（デフォルト設定をシンプルに） */
+/* セクション（PCデフォルト） */
 .section, section {
-  /* ⭐修正: 左右の余白は固定値で、中央寄せは works-container に任せる⭐ */
+  /* ⭐修正: 左右の余白は固定値で設定し、中央寄せを works-container に任せる⭐ */
   padding: 80px 50px; 
   text-align: center;
   box-sizing: border-box;
-  /* ⭐追加: 画面いっぱいに広がるように設定⭐ */
   width: 100%; 
   margin: 0; 
 }
@@ -45,7 +44,7 @@ body {
   color: #111;
 }
 
-/* ワークカードの基本スタイル（ボタン下揃えと余白調整済み） */
+/* ワークカードの基本スタイル */
 .work-card {
   background: #fff;
   border-radius: 16px;
@@ -55,9 +54,10 @@ body {
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   
+  /* ⭐修正: 高さ揃え（PC）とボタン下揃え（モバイル/PC）の準備⭐ */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: flex-start; /* コンテンツを上揃えに */
 }
 .work-card:hover {
   transform: translateY(-8px);
@@ -70,7 +70,7 @@ body {
   margin-bottom: 20px;
 }
 .work-card h3 {
-  margin-top: 0;
+  margin-top: 0; 
   margin-bottom: 10px;
   font-size: 1.2em;
 }
@@ -80,7 +80,8 @@ body {
 }
 .work-card a {
   display: inline-block;
-  margin-top: auto; /* ボタンを下部に固定 */
+  /* ⭐修正: ボタンを必ず下部に配置（高さが揃う/揃わないに関わらず）⭐ */
+  margin-top: auto; 
   color: #0078ff;
   text-decoration: none;
   font-weight: bold;
@@ -96,7 +97,58 @@ footer {
   text-align: center;
   padding: 20px;
 }
-/* ... その他の非レイアウトCSS（省略） ... */
+
+/* フェードイン効果（変更なし） */
+.fadein {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fadein.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Markdown本文用コンテナ（変更なし） */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  line-height: 1.8;
+  text-align: left;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.content h1, .content h2, .content h3 {
+  color: #111;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+.content p {
+  margin-bottom: 1em;
+}
+.content a {
+  color: #0078ff;
+  text-decoration: none;
+}
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* ===== トップページ専用デザイン（変更なし） ===== */
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+img.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 /* ---------------------------------------------------- */
 /* ⭐ メディアクエリ（PC/モバイルのレイアウト調整） ⭐ */
@@ -125,7 +177,7 @@ footer {
     margin: 10px;
   }
   .section, section {
-    /* ⭐修正: 左右パディングを最小限に調整してカードを最大化⭐ */
+    /* ⭐修正: モバイルのパディングを最小化してカード幅を最大化⭐ */
     padding-left: 10px; 
     padding-right: 10px;
     padding-top: 60px;
@@ -138,9 +190,7 @@ footer {
   .works-container .work-card {
     width: 100% !important; 
     max-width: 100% !important;
-    /* ⭐スマホ版の高さの調整は、コンテンツの長さが違うためCSSでは揃えません⭐
-       (不自然な空白を防ぐため、高さを固定しないのが最適解です) */
-    height: auto !important; 
+    height: auto !important; /* スマホではコンテンツに合わせた高さを維持 */
   }
 }
 
@@ -151,9 +201,9 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
     
-    /* ⭐修正: 中央寄せを確実にするための設定⭐ */
-    max-width: 1000px; /* コンテナの最大幅を制限 */
-    margin: 0 auto;   /* コンテナ自体を中央寄せ */
+    /* ⭐修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
+    max-width: 1000px;
+    margin: 0 auto; /* ⭐PC版の中央寄せのコア修正⭐ */
     
     padding: 0;
     justify-content: center; 
