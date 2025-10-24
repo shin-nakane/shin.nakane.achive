@@ -177,3 +177,42 @@ img.img-fluid {
     margin-bottom: 30px;
   }
 }
+
+
+/* === HTML構造修正後に適用する上書き（PCで2列にする） === */
+
+/* ボックス計算を安定させる */
+#data .works-container,
+#data .works-container .work-card {
+  box-sizing: border-box;
+}
+
+/* モバイルは既存の挙動に任せる */
+@media (min-width: 1024px) {
+  /* works-container が横並びになることを再確認 */
+  #data .works-container {
+    display: flex;           /* 既にあるはずだが確実に */
+    flex-wrap: wrap;
+    gap: 30px;               /* 既存と合わせる */
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  /* 2列表示：ギャップを考慮して幅を指定 */
+  #data .works-container .work-card {
+    /* 既存の max-width:320px を上書きして2列にする */
+    flex: 0 0 calc(50% - 15px); /* 50% - gap/2 */
+    max-width: calc(50% - 15px);
+    width: calc(50% - 15px);
+    margin: 0; /* 不要なマージンがあれば潰す */
+  }
+}
+
+/* さらに幅が大きいとき（例：非常に広いスクリーン） の微調整（任意） */
+@media (min-width: 1400px) {
+  #data .works-container .work-card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    width: calc(50% - 20px);
+  }
+}
