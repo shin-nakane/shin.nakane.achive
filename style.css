@@ -29,17 +29,14 @@ body {
   color: #00bfff;
 }
 
-/* セクション（PCデフォルト - 中央寄せのコア修正） */
+/* セクション（PCデフォルト - 元のレイアウト構造を維持） */
 .section, section {
-  /* ⭐修正: 左右パディングを削除し、コンテンツ領域を最大幅で中央寄せ⭐ */
-  padding: 80px 0; 
+  /* ⭐元の設定を維持: 左右の余白を保つ⭐ */
+  padding: 80px 50px; 
   text-align: center;
   box-sizing: border-box;
   width: 100%; 
-  
-  /* ⭐PC中央寄せの新しいコア設定⭐ */
-  max-width: 1200px; /* コンテンツ全体の最大幅を設定 */
-  margin: 0 auto;    /* 画面内でセクション自体を中央寄せ (単独セクション対応) */
+  margin: 0; 
 }
 .section h2, section h2 {
   font-size: 2em;
@@ -111,9 +108,8 @@ footer {
   flex-direction: column;
   gap: 30px; 
   align-items: center;
-  /* ⭐修正: sectionが中央寄せされるため、works-containerは幅いっぱいでOK⭐ */
   width: 100%; 
-  margin: 0; 
+  margin: 0 auto;
   padding: 0; 
   box-sizing: border-box; 
 }
@@ -153,11 +149,11 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
     
-    /* ⭐修正: sectionのパディングを相殺し、元の左右余白を再現⭐ */
-    max-width: 100%;
-    margin: 0; 
-    padding: 0 50px; /* ⭐元の section の padding: 80px 50px の左右50pxをここで再現⭐ */
+    /* ⭐コア修正: PCコンテンツの最大幅を制限し、sectionのパディング内で中央寄せする⭐ */
+    max-width: 1000px; /* カードコンテナの幅を1000pxに制限 */
+    margin: 0 auto;    /* ✅ sectionの内部でworks-containerを確実に中央寄せ */
     
+    padding: 0;
     justify-content: center; 
   }
   
@@ -169,7 +165,6 @@ footer {
     height: 100%; 
   }
 }
-
 
 /* レスポンシブ動画ラッパー（追加） */
 .video-wrapper {
