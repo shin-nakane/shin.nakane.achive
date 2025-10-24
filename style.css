@@ -214,12 +214,23 @@ img.img-fluid {
   }
 
   /* カード1枚だけのセクション用 */
-  .works-container.single-card {
-    display: flex;          /* グリッドではなくフレックスに切り替え */
-    justify-content: center; /* 横方向中央寄せ */
-    gap: 60px;              /* 他のセクションと同じ隙間 */
-  }
+.works-container.single-card {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+
+  /* ⭐カードの高さを揃える⭐ */
+  align-items: stretch;   /* 子要素を縦方向に引き伸ばす */
 }
+
+.works-container.single-card .work-card {
+  max-width: 320px;       /* 他のセクションと同じ最大幅 */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 
 
 
