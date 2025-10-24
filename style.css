@@ -219,3 +219,26 @@ img.img-fluid {
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+/* === PC表示で横にしっかり余白を取る === */
+@media (min-width: 1024px) {
+  #data .works-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
+    gap: 40px !important; /* ✅ カード間の横・縦の間隔をしっかり取る */
+    justify-items: center; /* カードを中央寄せ */
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px; /* ✅ 左右に全体余白を追加 */
+  }
+
+  #data .works-container .work-card {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex: none !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+}
