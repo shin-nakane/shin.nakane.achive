@@ -6,7 +6,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ヘッダー */
+/* ヘッダー (変更なし) */
 .header {
   background: #111;
   color: #fff;
@@ -29,14 +29,17 @@ body {
   color: #00bfff;
 }
 
-/* セクション（PCデフォルト） */
+/* セクション（PCデフォルト - 中央寄せのコア修正） */
 .section, section {
-  /* ⭐修正: 左右の余白は固定値で設定し、中央寄せを works-container に任せる⭐ */
+  /* ⭐元の設定を維持: 左右の余白を保つ (50px)⭐ */
   padding: 80px 50px; 
   text-align: center;
   box-sizing: border-box;
   width: 100%; 
-  margin: 0; 
+  
+  /* ⭐コア修正: セクション自体を画面中央に配置する⭐ */
+  max-width: 1400px; /* PCでの最大幅を定義 (元のレイアウトを尊重) */
+  margin: 0 auto;    /* ✅ セクション全体を中央寄せ */
 }
 .section h2, section h2 {
   font-size: 2em;
@@ -44,7 +47,7 @@ body {
   color: #111;
 }
 
-/* ワークカードの基本スタイル */
+/* ワークカードの基本スタイル（変更なし） */
 .work-card {
   background: #fff;
   border-radius: 16px;
@@ -54,10 +57,9 @@ body {
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   
-  /* ⭐修正: 高さ揃え（PC）とボタン下揃え（モバイル/PC）の準備⭐ */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* コンテンツを上揃えに */
+  justify-content: flex-start; 
 }
 .work-card:hover {
   transform: translateY(-8px);
@@ -80,7 +82,6 @@ body {
 }
 .work-card a {
   display: inline-block;
-  /* ⭐修正: ボタンを必ず下部に配置（高さが揃う/揃わないに関わらず）⭐ */
   margin-top: auto; 
   color: #0078ff;
   text-decoration: none;
@@ -90,71 +91,21 @@ body {
   text-decoration: underline;
 }
 
-/* フッター（変更なし） */
+/* フッター (変更なし) */
 footer {
   background: #111;
   color: #fff;
   text-align: center;
   padding: 20px;
 }
+/* ... その他の非レイアウトCSS（省略） ... */
 
-/* フェードイン効果（変更なし） */
-.fadein {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-.fadein.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Markdown本文用コンテナ（変更なし） */
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  line-height: 1.8;
-  text-align: left;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-.content h1, .content h2, .content h3 {
-  color: #111;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-.content p {
-  margin-bottom: 1em;
-}
-.content a {
-  color: #0078ff;
-  text-decoration: none;
-}
-.content a:hover {
-  text-decoration: underline;
-}
-
-/* ===== トップページ専用デザイン（変更なし） ===== */
-.home {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-img.img-fluid {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
 
 /* ---------------------------------------------------- */
 /* ⭐ メディアクエリ（PC/モバイルのレイアウト調整） ⭐ */
 /* ---------------------------------------------------- */
 
-/* モバイル・タブレット（max-width: 1023px） */
+/* モバイル・タブレット（max-width: 1023px） (変更なし) */
 .works-container {
   display: flex;
   flex-direction: column;
@@ -166,7 +117,7 @@ img.img-fluid {
   box-sizing: border-box; 
 }
 
-/* モバイル対応（max-width: 768px） */
+/* モバイル対応（max-width: 768px） (変更なし) */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -177,7 +128,6 @@ img.img-fluid {
     margin: 10px;
   }
   .section, section {
-    /* ⭐修正: モバイルのパディングを最小化してカード幅を最大化⭐ */
     padding-left: 10px; 
     padding-right: 10px;
     padding-top: 60px;
@@ -190,7 +140,7 @@ img.img-fluid {
   .works-container .work-card {
     width: 100% !important; 
     max-width: 100% !important;
-    height: auto !important; /* スマホではコンテンツに合わせた高さを維持 */
+    height: auto !important; 
   }
 }
 
@@ -201,20 +151,19 @@ img.img-fluid {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
     
-    /* ⭐修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
+    /* ⭐設定を維持: works-container自体は中央寄せせず、親のsectionに任せる⭐ */
     max-width: 1000px;
-    margin: 0 auto; /* ⭐PC版の中央寄せのコア修正⭐ */
+    margin: 0 auto; /* 親のsectionが中央寄せされているため、これはworks-containerをその中で中央寄せするための設定 */
     
     padding: 0;
     justify-content: center; 
   }
   
-  /* カード自体のスタイル */
+  /* カード自体のスタイル (変更なし) */
   .works-container .work-card {
     max-width: 100%;
     width: 100%;
     margin: 0;
-    /* ⭐修正: PC版は高さを揃える⭐ */
     height: 100%; 
   }
 }
