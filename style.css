@@ -40,15 +40,20 @@ body {
   color: #111;
 }
 
-
+/* ワークカードの基本スタイル */
 .work-card {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 320px;
+  max-width: 320px; /* モバイルデフォルトの最大幅（グリッド化で上書きされる） */
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
+  
+  /* カード内の要素を縦に並べ、上下の配置を調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .work-card:hover {
   transform: translateY(-8px);
@@ -110,14 +115,14 @@ footer {
 
 /* Markdown本文用コンテナ */
 .content {
-  max-width: 900px;      /* 本文の最大幅（調整可） */
-  margin: 0 auto;        /* 中央寄せ */
-  padding: 0 2rem;       /* 左右に余白を追加 */
-  line-height: 1.8;      /* 読みやすい行間 */
-  text-align: left;      /* 中央寄せを解除して自然な左揃え */
-  background: #fff;      /* 背景を白に（お好み） */
-  border-radius: 12px;   /* 角を少し丸める */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* ふんわり影 */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  line-height: 1.8;
+  text-align: left;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .content h1, .content h2, .content h3 {
   color: #111;
@@ -133,16 +138,15 @@ footer {
 }
 .content a:hover {
   text-decoration: underline;
-}   
+}
 
 /* ===== トップページ専用デザイン ===== */
 .home {
-  max-width: 1200px; /* コンテンツ幅を調整（広すぎず、狭すぎず） */
-  margin: 0 auto;    /* 中央寄せ */
-  padding: 0 40px;   /* 左右に余白 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-/* ファイルを選んで追加してください（例: assets/css/custom.css） */
 img.img-fluid {
   max-width: 100%;
   height: auto;
@@ -150,119 +154,40 @@ img.img-fluid {
   margin: 0 auto;
 }
 
+/* ---------------------------------------------------- */
+/* ⭐ ワークスコンテナのレイアウトをここで統合・整理 ⭐ */
+/* ---------------------------------------------------- */
 
-/* ---------- すべての works-container に2列レイアウトを適用 ---------- */
+/* モバイル・タブレット（デフォルトの1列表示） */
+.works-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* カード間の縦の余白 */
+  align-items: center;
+  margin: 0 auto;
+}
+.works-container .work-card {
+  max-width: 400px; 
+  width: 100%;
+}
+
+/* PC表示 (min-width: 1024px) - 2列レイアウトを適用 */
 @media (min-width: 1024px) {
   .works-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2列 */
-    gap: 30px;
-    align-items: start;
-    width: 100%;
-    box-sizing: border-box;
+    /* 2列レイアウト: 均等にスペースを分配 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px; /* 横と縦の余白をしっかり取る */
+    max-width: 1000px; /* コンテナ自体の最大幅を制限 */
+    padding: 0; /* セクションのパディングを使う */
   }
-
+  
+  /* カード自体のスタイル */
   .works-container .work-card {
-    max-width: none;
+    max-width: 100%; /* gridアイテムとして幅いっぱい使う */
     width: 100%;
-    flex: none;
     margin: 0;
   }
 }
 
-/* スマホ・タブレットでは1列に戻す */
-@media (max-width: 1023px) {
-  .works-container {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* ---------- すべての works-container に2列レイアウトを適用 ---------- */
-@media (min-width: 1024px) {
-  .works-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 各列の最小幅300px、最大1fr */
-    gap: 40px; /* カード間の余白 */
-    justify-content: center; /* 中央寄せ */
-    align-items: start;
-  }
-
-  .works-container .work-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .works-container .work-card img {
-    width: 100%;
-    border-radius: 10px;
-  }
-}
-
-/* スマホ・タブレットでは1列に戻す */
-@media (max-width: 1023px) {
-  .works-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
-
-.work-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-
-/* === PC表示で横にしっかり余白を取る === */
-@media (min-width: 1024px) {
-  #data .works-container {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr); /* 2列レイアウト */
-    gap: 40px !important; /* ✅ カード間の横・縦の間隔をしっかり取る */
-    justify-items: center; /* カードを中央寄せ */
-    align-items: start;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 20px; /* ✅ 左右に全体余白を追加 */
-  }
-
-  #data .works-container .work-card {
-    max-width: 100% !important;
-    width: 100% !important;
-    flex: none !important;
-    margin: 0 !important;
-    box-sizing: border-box;
-  }
-}#data .works-container .work-card {
-  max-width: 500px !important; /* ✅ カード幅を広げて詰まりを防ぐ */
-}
-
-
-
-/* === PC表示（横の詰まり解消＋整列）=== */
-@media (min-width: 1024px) {
-  .works-container {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(320px, 1fr)); /* ✅ カードを2列に */
-    gap: 60px !important; /* ✅ 横・縦の余白をしっかり取る */
-    justify-content: center !important; /* ✅ 全体を中央寄せ */
-    align-items: start;
-    padding: 0 40px; /* ✅ セクション左右に余白を追加 */
-    box-sizing: border-box;
-  }
-
-  .works-container .work-card {
-    max-width: 500px !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    box-sizing: border-box;
-  }
-}
+/* --- 不要な重複と !important を含む定義をすべて削除しました --- */
