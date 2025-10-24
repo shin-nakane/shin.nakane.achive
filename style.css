@@ -244,3 +244,25 @@ img.img-fluid {
 }#data .works-container .work-card {
   max-width: 500px !important; /* ✅ カード幅を広げて詰まりを防ぐ */
 }
+
+
+
+/* === PC表示（横の詰まり解消＋整列）=== */
+@media (min-width: 1024px) {
+  .works-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(320px, 1fr)); /* ✅ カードを2列に */
+    gap: 60px !important; /* ✅ 横・縦の余白をしっかり取る */
+    justify-content: center !important; /* ✅ 全体を中央寄せ */
+    align-items: start;
+    padding: 0 40px; /* ✅ セクション左右に余白を追加 */
+    box-sizing: border-box;
+  }
+
+  .works-container .work-card {
+    max-width: 500px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+}
