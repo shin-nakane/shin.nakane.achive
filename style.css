@@ -216,3 +216,29 @@ img.img-fluid {
     width: calc(50% - 20px);
   }
 }
+
+/* ---------- 強制2列レイアウト（#data セクション専用） ---------- */
+#data .works-container { 
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* PCで2列 */
+  gap: 30px !important;
+  align-items: start !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* work-card の幅制限を解除して grid に馴染ませる */
+#data .works-container .work-card {
+  max-width: none !important;
+  width: 100% !important;
+  flex: none !important;
+  margin: 0 !important;
+}
+
+/* PC判定（念のため） */
+@media (max-width: 1023px) {
+  /* タブレット・スマホでは1列に戻す */
+  #data .works-container {
+    grid-template-columns: 1fr !important;
+  }
+}
