@@ -155,3 +155,24 @@ img.img-fluid {
   display: block;
   margin: 0 auto;
 }
+
+/* === PC・スマホでの余白を調整 === */
+
+/* PC画面（幅1024px以上）のとき */
+@media (min-width: 1024px) {
+  .section, section {
+    padding: 80px 5%;  /* 10% → 5% に減らす */
+  }
+
+  .home {
+    max-width: 1100px;  /* 全体の横幅を少し狭くして中央寄せ */
+    padding: 0 2rem;    /* 左右の余白を固定 */
+  }
+}
+
+/* タブレット・スマホ（幅768px以下）のとき */
+@media (max-width: 768px) {
+  .section, section {
+    padding: 60px 5%;  /* こちらはそのままでOK */
+  }
+}
