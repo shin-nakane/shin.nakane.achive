@@ -197,24 +197,25 @@ img.img-fluid {
 @media (min-width: 1024px) {
   .works-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2列 */
+
+    /* ⭐カード1枚でも中央寄せ、2枚以上なら2列⭐ */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    
     gap: 60px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0;
 
-    /* ⭐カード1枚でも中央寄せ⭐ */
-    justify-content: center;   /* グリッド全体を中央寄せ */
-    justify-items: center;     /* 各カードを中央寄せ */
+    justify-content: center; /* グリッド全体を中央寄せ */
   }
 
   .works-container .work-card {
-    max-width: 100%;
     width: 100%;
     margin: 0;
     height: 100%;
   }
 }
+
 
 
 
