@@ -177,29 +177,26 @@ img.img-fluid {
   margin: 0 auto;
 }
 .works-container .work-card {
-  max-width: 400px; 
+  /* ⭐修正点: モバイルでのカードの最大幅を広げます⭐ */
+  max-width: 500px; 
   width: 100%;
 }
 
-/* PC表示 (min-width: 1024px) - 2列レイアウトを適用 */
+/* PC表示 (min-width: 1024px) - 2列レイアウトを適用 (変更なし) */
 @media (min-width: 1024px) {
   .works-container {
     display: grid;
-    /* 2列レイアウト: 均等にスペースを分配 */
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px; /* 横と縦の余白をしっかり取る */
-    max-width: 1000px; /* コンテナ自体の最大幅を制限 */
+    gap: 60px;
+    max-width: 1000px;
     padding: 0;
-    /* ⭐修正点: グリッド全体を中央寄せ⭐ */
-    justify-content: center; 
+    justify-content: center;
   }
   
-  /* カード自体のスタイル */
   .works-container .work-card {
     max-width: 100%;
     width: 100%;
     margin: 0;
-    /* ⭐修正点: グリッド内のカードの高さを揃える⭐ */
-    height: 100%; 
+    height: 100%;
   }
 }
