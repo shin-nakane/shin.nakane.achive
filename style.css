@@ -30,23 +30,6 @@ body {
   color: #00bfff;
 }
 
-/* --- スマホで押した後の青色固定を防ぐ設定 --- */
-.header nav a {
-  -webkit-tap-highlight-color: transparent; /* iPhone/Safariの青いハイライトを無効化 */
-}
-
-.header nav a:focus {
-  color: inherit;  /* フォーカス時も元の色を維持 */
-  outline: none;   /* 枠線を消す */
-}
-
-@media (hover: none) {
-  /* スマホ・タブレットなどhoverがない環境ではfocusスタイルを無効化 */
-  .header nav a:focus {
-    color: inherit !important;
-  }
-}
-
 /* スクロール時に縮むスタイル */
 .header.shrink {
   padding: 5px 20px;        /* 高さを小さく */
@@ -287,3 +270,33 @@ img.img-fluid {
   max-width: 480px; /* 小さい表示にするならここを調整 */
 }
 
+
+
+/* --- スマホで押した後に青色が残る問題の完全対応 --- */
+.header nav a {
+  -webkit-tap-highlight-color: transparent; /* iPhone/Androidのハイライト除去 */
+  -webkit-user-select: none; /* 長押し選択防止（任意） */
+  -webkit-touch-callout: none; /* 長押しメニュー防止（任意） */
+}
+
+/* 押した瞬間だけ色が変わってすぐ戻す */
+.header nav a:active {
+  color: #0077ff; /* 一瞬青でもOKなら設定、消したければinheritに変更 */
+}
+
+/* タップ後フォーカスが残らないようにする */
+.header nav a:focus,
+.header nav a:visited:focus,
+.header nav a:active:focus {
+  color: inherit !important;
+  outline: none !important;
+}
+
+/* hoverのない端末（スマホ）ではフォーカス状態を完全無効化 */
+@media (hover: none) {
+  .header nav a:focus,
+  .header nav a:active,
+  .header nav a:visited {
+    color: inherit !important;
+  }
+}
