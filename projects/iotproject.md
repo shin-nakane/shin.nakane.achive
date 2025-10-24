@@ -7,7 +7,7 @@ permalink: /projects/iotproject/
 # 農業IoTプロジェクト
 
 株式会社クラウドファーム様の農業IoTプロジェクトに参加しています。
-トマトの自動灌水システムの開発を目指しています
-<img class="img-fluid" src="/shin.nakane.achive/images/nplimitation.png">
+トマトの自動灌水システムの開発を行っていて、マイコンを利用して、土壌の水分量を常時モニターし必要に応じて自動で灌水をすることに加えて、クラウドを活用して土壌の様子を農家の方が家にいながらでも知ることができるシステムを目指しております。
+<img class="img-fluid" src="/shin.nakane.achive/images/iot.jpg">
 興味ありましたらこちらをご覧ください：
 [クラウドファーム農業IoTプロジェクト開発ブログ](https://tcloud-farm.github.io/agri-iot-blog/)
