@@ -241,4 +241,6 @@ img.img-fluid {
     margin: 0 !important;
     box-sizing: border-box;
   }
+}#data .works-container .work-card {
+  max-width: 500px !important; /* ✅ カード幅を広げて詰まりを防ぐ */
 }
