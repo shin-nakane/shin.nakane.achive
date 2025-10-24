@@ -13,6 +13,7 @@ c言語を用いて簡単なゲームを作成しました。
 所持金をランダムに決定し、その所持金を使ってギャンブルを繰り返し
 １０万円に到達したらゲームクリアお金がなくなればゲームオーバーというゲームです
 <img class="img-fluid" src="/shin.nakane.achive/images/visit.png">
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
