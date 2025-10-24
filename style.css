@@ -46,14 +46,14 @@ body {
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 320px; /* モバイルデフォルトの最大幅（グリッド化で上書きされる） */
+  max-width: 320px; 
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   
-  /* カード内の要素を縦に並べ、上下の配置を調整 */
+  /* ⭐修正点: flexを設定し、コンテンツを上揃えにする⭐ */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; 
 }
 .work-card:hover {
   transform: translateY(-8px);
@@ -63,14 +63,24 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
+  margin-bottom: 20px; /* ⭐調整: 画像下の余白⭐ */
 }
 .work-card h3 {
-  margin-top: 15px;
+  margin-top: 0; /* ⭐修正: 余分なマージンを削除⭐ */
+  margin-bottom: 10px; /* ⭐調整: タイトル下の余白⭐ */
   font-size: 1.2em;
 }
+
+/* pタグ（本文）の追加調整 */
+.work-card p {
+  margin-top: 0;
+  margin-bottom: 20px; /* ⭐調整: 本文下の余白⭐ */
+}
+
 .work-card a {
   display: inline-block;
-  margin-top: 10px;
+  /* ⭐修正: 残りのスペースを埋めてボタンを最下部に固定⭐ */
+  margin-top: auto; 
   color: #0078ff;
   text-decoration: none;
   font-weight: bold;
@@ -155,14 +165,14 @@ img.img-fluid {
 }
 
 /* ---------------------------------------------------- */
-/* ⭐ ワークスコンテナのレイアウトをここで統合・整理 ⭐ */
+/* ⭐ ワークスコンテナのレイアウト（最終整理版） ⭐ */
 /* ---------------------------------------------------- */
 
 /* モバイル・タブレット（デフォルトの1列表示） */
 .works-container {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* カード間の縦の余白 */
+  gap: 30px; 
   align-items: center;
   margin: 0 auto;
 }
@@ -179,15 +189,17 @@ img.img-fluid {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; /* 横と縦の余白をしっかり取る */
     max-width: 1000px; /* コンテナ自体の最大幅を制限 */
-    padding: 0; /* セクションのパディングを使う */
+    padding: 0;
+    /* ⭐修正点: グリッド全体を中央寄せ⭐ */
+    justify-content: center; 
   }
   
   /* カード自体のスタイル */
   .works-container .work-card {
-    max-width: 100%; /* gridアイテムとして幅いっぱい使う */
+    max-width: 100%;
     width: 100%;
     margin: 0;
+    /* ⭐修正点: グリッド内のカードの高さを揃える⭐ */
+    height: 100%; 
   }
 }
-
-/* --- 不要な重複と !important を含む定義をすべて削除しました --- */
