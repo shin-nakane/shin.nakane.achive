@@ -29,9 +29,9 @@ body {
   color: #00bfff;
 }
 
-/* セクション（デフォルト設定を中央寄せ対応に） */
+/* セクション（PCデフォルト - 中央寄せの干渉を防ぐため左右パディングを0に） */
 .section, section {
-  /* ⭐最終修正: 左右パディングを削除し、コンテンツの幅の制御をworks-containerに完全に移譲する⭐ */
+  /* ⭐修正: 左右パディングを0にし、works-containerに中央寄せを任せる⭐ */
   padding: 80px 0; 
   text-align: center;
   box-sizing: border-box;
@@ -79,7 +79,7 @@ body {
 }
 .work-card a {
   display: inline-block;
-  margin-top: auto; 
+  margin-top: auto; /* ボタン下揃え */
   color: #0078ff;
   text-decoration: none;
   font-weight: bold;
@@ -108,7 +108,6 @@ footer {
   flex-direction: column;
   gap: 30px; 
   align-items: center;
-  /* ⭐修正: width: 100%は維持し、PCで上書きされるのを待つ⭐ */
   width: 100%; 
   margin: 0 auto;
   padding: 0; 
@@ -139,7 +138,7 @@ footer {
   .works-container .work-card {
     width: 100% !important; 
     max-width: 100% !important;
-    height: auto !important; 
+    height: auto !important; /* コンテンツに応じた高さを維持 */
   }
 }
 
@@ -150,15 +149,12 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 60px; 
     
-    /* ⭐修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
+    /* ⭐コア修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
     max-width: 1000px; 
-    margin: 0 auto; /* ⭐中央寄せのコア修正。親要素のパディングを0にしたため機能するはず⭐ */
+    margin: 0 auto; /* ✅ 中央寄せの最終手段 */
     
     padding: 0;
     justify-content: center; 
-    
-    /* ⭐最終手段: works-containerがグリッド幅を制限するために使用。不要な場合は削除してください⭐ */
-    /* width: fit-content; */ 
   }
   
   /* カード自体のスタイル */
