@@ -10,4 +10,4 @@ permalink: /projects/iotproject/
 トマトの自動灌水システムの開発を目指しています
 
 興味ありましたらこちらをご覧ください：
-[クラウドファーム農業IoTブログ](https://tcloud-farm.github.io/agri-iot-blog/)
+[クラウドファーム農業IoTプロジェクト開発ブログ](https://tcloud-farm.github.io/agri-iot-blog/)
