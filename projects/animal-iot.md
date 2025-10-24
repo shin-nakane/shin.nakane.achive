@@ -24,7 +24,7 @@ PIRセンサは赤外線を常にモニターし、モニター範囲内の状�
 自動で近づいてきた動物を撮影するシステムを開発しました。
 <!-- 動画を挿入 -->
 <div class="video-wrapper">
-  <video controls playsinline poster="{{ '/images/animal-iot.png' | relative_url }}">
+  <video controls playsinline poster="{{ '/images/animal-iott.png' | relative_url }}">
     <source src="{{ '/videos/animal-iot.mp4' | relative_url }}" type="video/mp4">
     ブラウザが video タグをサポートしていません。
   </video>
