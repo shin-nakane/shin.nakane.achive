@@ -194,30 +194,28 @@ img.img-fluid {
   }
 }
 
-/* PC表示 (min-width: 1024px) - 2列レイアウト */
 @media (min-width: 1024px) {
   .works-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px; 
-    
-    /* ⭐修正: PCコンテンツの最大幅を制限し、中央寄せを確実にする⭐ */
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
+    gap: 60px;
     max-width: 1000px;
-    margin: 0 auto; /* ⭐PC版の中央寄せのコア修正⭐ */
-    
+    margin: 0 auto;
     padding: 0;
-    justify-content: center; 
+
+    /* ⭐カード1枚でも中央寄せ⭐ */
+    justify-content: center;   /* グリッド全体を中央寄せ */
+    justify-items: center;     /* 各カードを中央寄せ */
   }
-  
-  /* カード自体のスタイル */
+
   .works-container .work-card {
     max-width: 100%;
     width: 100%;
     margin: 0;
-    /* ⭐修正: PC版は高さを揃える⭐ */
-    height: 100%; 
+    height: 100%;
   }
 }
+
 
 
 /* レスポンシブ動画ラッパー（追加） */
