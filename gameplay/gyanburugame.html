@@ -8,198 +8,180 @@ permalink: /gameplay/
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>🎲 ギャンブル道場 🎲</title>
-<style>
-  body {
-    margin: 0;
-    font-family: "Helvetica Neue", sans-serif;
-    background: #f6f8fa;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    padding: 40px 10px;
-  }
-
-  h1 {
-    font-size: 2em;
-    color: #111;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  /* コンテンツラッパー（Markdown記事風） */
-  #container {
-    display: none;
-    max-width: 900px;           /* Markdownの記事幅に揃える */
-    width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    box-sizing: border-box;
-    text-align: center;
-  }
-
-  #log {
-    max-height: 300px;
-    overflow-y: auto;
-    white-space: pre-line;
-    margin-bottom: 20px;
-    padding: 1rem;
-    border-radius: 12px;
-    background: #f0f4f8;
-    color: #111;
-    font-size: 1rem;
-    text-align: left;
-    line-height: 1.6;
-  }
-
-  input {
-    padding: 0.8rem;
-    font-size: 1rem;
-    width: 100%;
-    border-radius: 8px;
-    border: 2px solid #0078ff;
-    text-align: center;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
-  }
-
-  button#btn, #start-btn {
-    font-size: 1rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    border: none;
-    background-color: #0078ff;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-bottom: 1rem;
-  }
-
-  button#btn:hover, #start-btn:hover {
-    background-color: #3399ff;
-  }
-
-  /* スタート画面 */
-  #start-screen {
-    text-align: center;
-    margin-top: 50px;
-    max-width: 900px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  #start-screen h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  #start-screen p {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 768px) {
-    #container, #start-screen {
-      width: 95%;
-      padding: 1.5rem;
+  <meta charset="UTF-8">
+  <title>🎲 ギャンブル道場 🎲</title>
+  <style>
+    body {
+      font-family: "Yu Gothic", sans-serif;
+      background: radial-gradient(circle at top, #111, #000);
+      color: #0ff;
+      text-align: center;
+      padding: 40px;
+      overflow-x: hidden;
     }
-    #log {
-      max-height: 250px;
-      font-size: 0.95rem;
-    }
+
     h1 {
-      font-size: 1.8rem;
+      font-size: 3em;
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
     }
-  }
-</style>
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+      to { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+    }
+
+    #start-screen {
+      margin-top: 100px;
+    }
+
+    #container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #0ff;
+      display: none;
+    }
+
+    #log {
+      text-align: left;
+      white-space: pre-line;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 15px;
+      background: rgba(0, 255, 255, 0.05);
+      color: #0ff;
+      box-shadow: inset 0 0 10px #0ff;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      width: 80%;
+      border-radius: 10px;
+      border: 2px solid #0ff;
+      background: #111;
+      color: #0ff;
+      text-align: center;
+    }
+
+    button {
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #33ffff;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+  </style>
 </head>
 <body>
+  <div id="start-screen">
+    <h1>🎲 ギャンブル道場 🎲</h1>
+    <p>運と度胸を試す時が来た…</p>
+    <button id="start-btn">次へ</button>
+  </div>
 
-<div id="start-screen">
-  <h1>🎲 ギャンブル道場 🎲</h1>
-  <p>運と度胸を試す時が来た…</p>
-  <button id="start-btn">スタート</button>
-</div>
+  <div id="container">
+    <h1>ギャンブル道場</h1>
+    <div id="log">Press「次へ」</div>
+    <input id="input" type="text" placeholder="ここに入力…" />
+    <button id="btn">送信</button>
+  </div>
 
-<div id="container">
-  <h1>ギャンブル道場</h1>
-  <div id="log">Press「スタート」！</div>
-  <input id="input" type="text" placeholder="ここに入力…" />
-  <button id="btn">送信</button>
-</div>
+  <script>
+    let state = 0, money = 0, round = 1, level = "", bet = 0, correct = 0, multi = 0;
+    const log = document.getElementById("log");
+    const input = document.getElementById("input");
+    const btn = document.getElementById("btn");
 
-<script>
-let state = 0, money = 0, round = 1, level = "", bet = 0, correct = 0, multi = 0;
-const log = document.getElementById("log");
-const input = document.getElementById("input");
-const btn = document.getElementById("btn");
+    function print(text) {
+      log.textContent += "\n" + text;
+      log.scrollTop = log.scrollHeight;
+    }
 
-function print(text) {
-  log.textContent += "\n" + text;
-  log.scrollTop = log.scrollHeight;
-}
+    function next(message, nextState) {
+      print(message);
+      state = nextState;
+      input.value = "";
+    }
 
-function next(message, nextState) {
-  print(message);
-  state = nextState;
-  input.value = "";
-}
+    function randomInt(max) {
+      return Math.floor(Math.random() * max) + 1;
+    }
 
-function randomInt(max) { return Math.floor(Math.random() * max) + 1; }
+    function gameAction(val) {
+      switch (state) {
+        case 0:
+          next("あなたの所持金をランダムに決定します。好きな整数を入力してください:", 1);
+          break;
 
-function gameAction(val) {
-  switch (state) {
-    case 0:
-      next("あなたの所持金をランダムに決定します。好きな整数を入力してください:", 1);
-      break;
-    case 1:
-      const seed = parseInt(val);
-      if (isNaN(seed)) { print("整数を入力してください。"); return; }
-      money = randomInt(100000);
-      next(`あなたの所持金は ${money} 円です！`, 2);
-      break;
-    case 2:
-      if (money <= 0) { print("💀 Game Over! 所持金がなくなりました。"); return; }
-      if (money >= 100000) { print("🎉 Game Clear! 10万円に到達！ 🎉"); return; }
-      next(`\n第${round}ラウンド\nギャンブル場を (a,b,c) から選んでください。\n倍率は順に 2,3,5倍です:`, 3);
-      break;
-    case 3:
-      if (!["a","b","c"].includes(val)) { print("無効な選択です。a,b,cから選んでください。"); return; }
-      level = val;
-      next(`賭け金を決めてください（現在の所持金: ${money} 円）:`, 4);
-      break;
-    case 4:
-      bet = parseInt(val);
-      if (isNaN(bet) || bet <= 0 || bet > money) { print("無効な金額です。"); return; }
-      money -= bet;
-      if(level==="a"){ correct=randomInt(2); multi=2; }
-      else if(level==="b"){ correct=randomInt(3); multi=3; }
-      else{ correct=randomInt(5); multi=5; }
-      next(`(1〜${level==="a"?2:level==="b"?3:5}) の中から数字を選んでください:`, 5);
-      break;
-    case 5:
-      const num = parseInt(val);
-      if(isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)){ print("範囲外の数字です。"); return; }
-      if(num===correct){ const win=bet*multi; money+=win; print(`🎯 当たり！${multi}倍で ${win} 円獲得！`); }
-      else{ print(`❌ はずれ…当たりは ${correct} でした。`); }
-      print(`現在の所持金: ${money} 円\n`);
-      round++; state=2;
-      break;
-    default:
-      print("ゲームを再読み込みしてください。");
-      break;
-  }
-}
+        case 1:
+          const seed = parseInt(val);
+          if (isNaN(seed)) { print("整数を入力してください。"); return; }
+          money = randomInt(100000);
+          next(`あなたの所持金は ${money} 円です！`, 2);
+          break;
 
-btn.addEventListener("click", ()=>{ gameAction(input.value.trim()); });
-document.addEventListener("keydown", (e)=>{ if(e.key==="Enter") gameAction(input.value.trim()); });
+        case 2:
+          if (money <= 0) { print("💀 Game Over! 所持金がなくなりました。"); return; }
+          if (money >= 100000) { print("🎉 Game Clear! 10万円に到達！ 🎉"); return; }
+          next(`\n第${round}ラウンド\nギャンブル場を (a,b,c) から選んでください。\n倍率は順に 2, 3, 5倍です:`, 3);
+          break;
 
-document.getElementById("start-btn").addEventListener("click", ()=>{
-  document.getElementById("start-screen").style.display="none";
-  document.getElementById("container").style.display="block";
-  print("ようこそギャンブル道場へ！");
-});
-</script>
+        case 3:
+          if (!["a","b","c"].includes(val)) { print("無効な選択です。a,b,cから選んでください。"); return; }
+          level = val;
+          next(`賭け金を決めてください（現在の所持金: ${money} 円）:`, 4);
+          break;
+
+        case 4:
+          bet = parseInt(val);
+          if (isNaN(bet) || bet <= 0 || bet > money) { print("無効な金額です。"); return; }
+          money -= bet;
+          if (level==="a"){ correct=randomInt(2); multi=2; }
+          else if(level==="b"){ correct=randomInt(3); multi=3; }
+          else { correct=randomInt(5); multi=5; }
+          next(`(1〜${level==="a"?2:level==="b"?3:5}) の中から数字を選んでください:`,5);
+          break;
+
+        case 5:
+          const num = parseInt(val);
+          if (isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)) { print("範囲外の数字です。"); return; }
+          if(num===correct){ const win=bet*multi; money+=win; print(`🎯 当たり！${multi}倍で ${win} 円獲得！`); }
+          else{ print(`❌ はずれ…当たりは ${correct} でした。`); }
+          print(`現在の所持金: ${money} 円\n`);
+          round++; state=2;
+          break;
+
+        default:
+          print("ゲームを再読み込みしてください。");
+          break;
+      }
+    }
+
+    btn.addEventListener("click", ()=>{ gameAction(input.value.trim()); });
+    document.addEventListener("keydown", (e)=>{ if(e.key==="Enter") gameAction(input.value.trim()); });
+
+    document.getElementById("start-btn").addEventListener("click", ()=>{
+      document.getElementById("start-screen").style.display="none";
+      document.getElementById("container").style.display="block";
+      print("ようこそギャンブル道場へ！");
+    });
+  </script>
 </body>
 </html>
