@@ -311,7 +311,7 @@ img.img-fluid {
 /* 動画の短い説明 */
 .video-desc {
   font-size: 0.95rem;
-  color: rgba(207, 207, 220, 0);
+  color: #111;
   text-align: center;
   margin: 0.5rem auto 1.2rem;
   max-width: 720px;
