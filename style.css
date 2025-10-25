@@ -300,3 +300,20 @@ img.img-fluid {
     color: inherit !important;
   }
 }
+
+
+
+.video-wrapper figure,
+.video-wrapper { /* 既存のラッパーに合わせる */
+  position: relative;
+}
+
+/* 動画の短い説明 */
+.video-desc {
+  font-size: 0.95rem;
+  color: #cfd8dc;
+  text-align: center;
+  margin: 0.5rem auto 1.2rem;
+  max-width: 720px;
+  line-height: 1.4;
+}
