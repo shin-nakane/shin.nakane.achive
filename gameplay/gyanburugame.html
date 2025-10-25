@@ -13,21 +13,21 @@ permalink: /gameplay/
   <style>
     body {
       font-family: "Yu Gothic", sans-serif;
-      background: linear-gradient(135deg, #000, #111, #222);
-      color: #0f0;
+      background: linear-gradient(135deg, #222, #333, #444);
+      color: #fff;
       text-align: center;
       padding: 40px;
       overflow: hidden;
     }
     h1 {
       font-size: 2.5em;
-      color: #0f0;
-      text-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
+      color: #fff;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
       animation: glow 2s ease-in-out infinite alternate;
     }
     @keyframes glow {
-      from { text-shadow: 0 0 10px #0f0; }
-      to { text-shadow: 0 0 40px #0f0; }
+      from { text-shadow: 0 0 5px #fff; }
+      to { text-shadow: 0 0 20px #fff; }
     }
     #container {
       max-width: 600px;
@@ -35,23 +35,24 @@ permalink: /gameplay/
       background: rgba(0, 0, 0, 0.7);
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 0 20px #0f0;
+      box-shadow: 0 0 20px #fff;
       display: none;
     }
     #start-screen {
       margin-top: 100px;
     }
     button {
-      background-color: #0f0;
+      background-color: #00ccff;
       color: #111;
       border: none;
       padding: 10px 25px;
       font-size: 1.2rem;
       border-radius: 10px;
       cursor: pointer;
+      margin-top: 10px;
     }
     button:hover {
-      background-color: #6f6;
+      background-color: #33ddff;
     }
     #log {
       text-align: left;
@@ -59,6 +60,7 @@ permalink: /gameplay/
       max-height: 300px;
       overflow-y: auto;
       margin-bottom: 20px;
+      color: #fff;
     }
     input {
       padding: 8px;
@@ -84,39 +86,6 @@ permalink: /gameplay/
   </div>
 
   <script>
-    // ======== BGMと効果音 ========
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    let bgmSource = null;
-
-    function playBGM() {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = "sine";
-      osc.frequency.value = 220;
-      gain.gain.value = 0.03;
-      osc.connect(gain).connect(audioCtx.destination);
-      osc.start();
-      bgmSource = osc;
-    }
-
-    function stopBGM() {
-      if (bgmSource) {
-        bgmSource.stop();
-        bgmSource = null;
-      }
-    }
-
-    function playEffect(frequency = 440, duration = 0.1) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.frequency.value = frequency;
-      gain.gain.value = 0.1;
-      osc.connect(gain).connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    }
-
-    // ======== ゲームロジック ========
     let state = 0;
     let money = 0;
     let round = 1;
@@ -145,7 +114,6 @@ permalink: /gameplay/
     }
 
     function gameAction(val) {
-      playEffect(600, 0.05);
       switch (state) {
         case 0:
           next("あなたの所持金をランダムに決定します。好きな整数を入力してください:", 1);
@@ -157,7 +125,6 @@ permalink: /gameplay/
             print("整数を入力してください。");
             return;
           }
-          Math.seed = seed;
           money = randomInt(100000);
           next(`あなたの所持金は ${money} 円です！`, 2);
           break;
@@ -165,12 +132,10 @@ permalink: /gameplay/
         case 2:
           if (money <= 0) {
             print("💀 Game Over! 所持金がなくなりました。");
-            stopBGM();
             return;
           }
           if (money >= 100000) {
             print("🎉 Game Clear! 10万円に到達！ 🎉");
-            stopBGM();
             return;
           }
           next(`\n第${round}ラウンド\nギャンブル場を (a,b,c) から選んでください。\n倍率は順に 2, 3, 5倍です:`, 3);
@@ -207,10 +172,8 @@ permalink: /gameplay/
           if (num === correct) {
             const win = bet * multi;
             money += win;
-            playEffect(800, 0.2);
             print(`🎯 当たり！${multi}倍で ${win} 円獲得！`);
           } else {
-            playEffect(200, 0.3);
             print(`❌ はずれ…当たりは ${correct} でした。`);
           }
           print(`現在の所持金: ${money} 円\n`);
@@ -224,23 +187,12 @@ permalink: /gameplay/
       }
     }
 
-    btn.addEventListener("click", () => {
-      gameAction(input.value.trim());
-    });
+    btn.addEventListener("click", () => { gameAction(input.value.trim()); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Enter") gameAction(input.value.trim()); });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        gameAction(input.value.trim());
-      }
-    });
-
-    // ======== スタート画面 ========
     document.getElementById("start-btn").addEventListener("click", () => {
       document.getElementById("start-screen").style.display = "none";
       document.getElementById("container").style.display = "block";
-      audioCtx.resume();
-      playBGM();
-      playEffect(880, 0.2);
       print("ようこそギャンブル道場へ！");
     });
   </script>
