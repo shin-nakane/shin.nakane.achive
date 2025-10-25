@@ -407,3 +407,15 @@ img.img-fluid {
     width: 100%;
   }
 }
+@media (max-width: 480px) {
+  .video-wrapper.video-small { width: 100%; max-width: 100%; }
+  .video-desc {
+    font-size: 0.98rem;
+    padding: 0.6rem;
+    color: #ffffff;                      /* 文字色を白に */
+    background: rgba(0, 0, 0, 0.75);     /* 背景を濃くして可読性向上 */
+    font-weight: 600;                    /* やや太字で読みやすく */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    border-radius: 6px;
+  }
+}
