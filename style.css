@@ -353,7 +353,7 @@ img.img-fluid {
   display: block;
   position: static !important;
   color: #fff;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.75);
   padding: 0.5rem 0.75rem;
   margin-top: 0.5rem;
   max-width: 720px;
