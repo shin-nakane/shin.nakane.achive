@@ -38,7 +38,20 @@ permalink: /gameplay/
 
     #start-screen {
       margin-top: 100px;
+      /* 背景色を半透明の黒に戻す */
       background: rgba(0,0,0,0.8);
+      
+      /* ボックスとして成立させるための設定を維持 */
+      width: 80%;
+      max-width: 600px;
+      padding: 40px 20px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 15px;
+      
+      /* 元の白色の時のボーダーと影は削除または変更（今回は元の黒を強調） */
+      border: none;
+      box-shadow: 0 0 20px #0ff; /* ボックスの周囲に水色のグローを維持 */
     }
 
     #container {
