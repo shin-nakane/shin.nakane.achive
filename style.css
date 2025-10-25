@@ -317,3 +317,49 @@ img.img-fluid {
   max-width: 720px;
   line-height: 1.4;
 }
+
+
+/* 追加：モバイルで動画キャプションが隠れないようにする */
+.video-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0.6rem auto 1rem;
+}
+
+.video-wrapper {
+  /* モバイルでキャプションが隠れないよう overflow を visible に */
+  overflow: visible;
+  max-width: 100%;
+  margin: 0.4rem auto 0;
+}
+
+/* 既存の .video-wrapper.video-small は残すが幅を柔軟に */
+.video-wrapper.video-small {
+  max-width: 480px;
+  width: 90%;
+}
+
+/* キャプションは常に動画の下に表示（モバイルで position を解除） */
+.video-desc {
+  position: static !important;
+  display: block;
+  color: #fff; /* 必要なら色を変更してください */
+  background: rgba(0,0,0,0.45); /* 読みやすくする薄背景 */
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  max-width: 720px;
+  width: calc(100% - 1rem);
+  box-sizing: border-box;
+  border-radius: 6px;
+  text-align: center;
+  word-break: break-word;
+  z-index: 1;
+}
+
+/* モバイル向け微調整 */
+@media (max-width: 480px) {
+  .video-wrapper.video-small { width: 100%; max-width: 100%; }
+  .video-desc { font-size: 0.95rem; padding: 0.5rem; }
+}
