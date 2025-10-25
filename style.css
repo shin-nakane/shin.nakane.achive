@@ -303,17 +303,15 @@ img.img-fluid {
 
 
 
-.video-wrapper figure,
-.video-wrapper { /* 既存のラッパーに合わせる */
-  position: relative;
-}
+
 
 .video-wrapper,
 .video-wrapper figure {
   position: relative;
 }
 
-/* 外側ブロック（動画＋説明） */
+
+/* 動画＋キャプション共通（整理済み） */
 .video-block {
   display: flex;
   flex-direction: column;
@@ -323,12 +321,17 @@ img.img-fluid {
   box-sizing: border-box;
 }
 
-/* 動画ラッパー（モバイルでははみ出し対策） */
+.video-wrapper,
+.video-wrapper figure {
+  position: relative;
+}
+
+/* 動画ラッパー（レスポンシブ、16:9） */
 .video-wrapper {
   overflow: visible;
   max-width: 100%;
   margin: 0.4rem auto 0;
-  padding-bottom: 56.25%; /* 16:9 を保つ場合は必要に応じて */
+  padding-bottom: 56.25%;
   height: 0;
 }
 .video-wrapper iframe,
@@ -347,10 +350,10 @@ img.img-fluid {
   width: 90%;
 }
 
-/* キャプション（PCは左揃え、モバイルは中央・下表示） */
+/* キャプション（デフォルトは動画下、モバイルと共通スタイル） */
 .video-desc {
-  position: static !important;
   display: block;
+  position: static !important;
   color: #fff;
   background: rgba(0,0,0,0.45);
   padding: 0.5rem 0.75rem;
@@ -366,8 +369,43 @@ img.img-fluid {
   line-height: 1.4;
 }
 
-/* モバイル微調整 */
+/* モバイル微調整（そのまま維持） */
 @media (max-width: 480px) {
   .video-wrapper.video-small { width: 100%; max-width: 100%; }
   .video-desc { font-size: 0.95rem; padding: 0.5rem; }
+}
+
+/* PC（>=1024px）：キャプションを動画のすぐ上に表示 */
+@media (min-width: 1024px) {
+  .video-block {
+    flex-direction: column; /* 縦並びを維持 */
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 720px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  /* キャプションを先に表示 */
+  .video-desc {
+    order: -1;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 0 0.4rem;
+    text-align: center;
+    background: rgba(0,0,0,0.35);
+  }
+
+  .video-wrapper {
+    width: 100%;
+    max-width: 720px;
+    padding-bottom: 56.25%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper.video-small {
+    max-width: 480px;
+    width: 100%;
+  }
 }
