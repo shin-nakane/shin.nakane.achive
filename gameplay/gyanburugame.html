@@ -11,81 +11,118 @@ permalink: /gameplay/
   <meta charset="UTF-8">
   <title>🎲 ギャンブル道場 🎲</title>
   <style>
+    /* 全体 */
     body {
-      font-family: "Yu Gothic", sans-serif;
-      background: radial-gradient(circle at top, #111, #000);
-      color: #0ff;
-      text-align: center;
-      padding: 40px;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: #f6f8fa;
+      color: #333;
+      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 10px;
     }
 
     h1 {
-      font-size: 3em;
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      font-size: 2.5rem;
+      color: #111;
+      text-align: center;
       margin-bottom: 20px;
-      animation: glow 2s ease-in-out infinite alternate;
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
-      to { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
-    }
-
+    /* スタート画面 */
     #start-screen {
-      margin-top: 100px;
+      text-align: center;
+      margin-top: 50px;
     }
 
+    #start-screen p {
+      margin-bottom: 20px;
+    }
+
+    #start-screen button {
+      font-size: 1.2rem;
+      padding: 10px 25px;
+      border-radius: 10px;
+      border: none;
+      background-color: #0078ff;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #start-screen button:hover {
+      background-color: #3399ff;
+    }
+
+    /* ゲーム画面 */
     #container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #0ff;
       display: none;
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
     #log {
-      text-align: left;
-      white-space: pre-line;
       max-height: 300px;
       overflow-y: auto;
+      text-align: left;
+      white-space: pre-line;
       margin-bottom: 20px;
       padding: 10px;
-      border-radius: 15px;
-      background: rgba(0, 255, 255, 0.05);
-      color: #0ff;
-      box-shadow: inset 0 0 10px #0ff;
+      border-radius: 12px;
+      background: #f0f4f8;
+      color: #111;
     }
 
     input {
       padding: 10px;
       font-size: 1rem;
       width: 80%;
-      border-radius: 10px;
-      border: 2px solid #0ff;
-      background: #111;
-      color: #0ff;
+      border-radius: 8px;
+      border: 2px solid #0078ff;
       text-align: center;
+      margin-bottom: 10px;
     }
 
-    button {
-      background-color: #0ff;
-      color: #000;
+    button#btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 8px;
       border: none;
-      padding: 10px 25px;
-      font-size: 1.2rem;
-      border-radius: 10px;
+      background-color: #0078ff;
+      color: #fff;
       cursor: pointer;
-      margin-top: 10px;
       transition: 0.2s;
     }
 
-    button:hover {
-      background-color: #33ffff;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    button#btn:hover {
+      background-color: #3399ff;
+    }
+
+    @media (max-width: 768px) {
+      #container, #start-screen {
+        width: 95%;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      #log {
+        max-height: 250px;
+        font-size: 0.95rem;
+      }
+
+      input {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -120,54 +157,46 @@ permalink: /gameplay/
       input.value = "";
     }
 
-    function randomInt(max) {
-      return Math.floor(Math.random() * max) + 1;
-    }
+    function randomInt(max) { return Math.floor(Math.random() * max) + 1; }
 
     function gameAction(val) {
       switch (state) {
         case 0:
           next("あなたの所持金をランダムに決定します。好きな整数を入力してください:", 1);
           break;
-
         case 1:
           const seed = parseInt(val);
           if (isNaN(seed)) { print("整数を入力してください。"); return; }
           money = randomInt(100000);
           next(`あなたの所持金は ${money} 円です！`, 2);
           break;
-
         case 2:
           if (money <= 0) { print("💀 Game Over! 所持金がなくなりました。"); return; }
           if (money >= 100000) { print("🎉 Game Clear! 10万円に到達！ 🎉"); return; }
-          next(`\n第${round}ラウンド\nギャンブル場を (a,b,c) から選んでください。\n倍率は順に 2, 3, 5倍です:`, 3);
+          next(`\n第${round}ラウンド\nギャンブル場を (a,b,c) から選んでください。\n倍率は順に 2,3,5倍です:`, 3);
           break;
-
         case 3:
           if (!["a","b","c"].includes(val)) { print("無効な選択です。a,b,cから選んでください。"); return; }
           level = val;
           next(`賭け金を決めてください（現在の所持金: ${money} 円）:`, 4);
           break;
-
         case 4:
           bet = parseInt(val);
           if (isNaN(bet) || bet <= 0 || bet > money) { print("無効な金額です。"); return; }
           money -= bet;
-          if (level==="a"){ correct=randomInt(2); multi=2; }
+          if(level==="a"){ correct=randomInt(2); multi=2; }
           else if(level==="b"){ correct=randomInt(3); multi=3; }
-          else { correct=randomInt(5); multi=5; }
-          next(`(1〜${level==="a"?2:level==="b"?3:5}) の中から数字を選んでください:`,5);
+          else{ correct=randomInt(5); multi=5; }
+          next(`(1〜${level==="a"?2:level==="b"?3:5}) の中から数字を選んでください:`, 5);
           break;
-
         case 5:
           const num = parseInt(val);
-          if (isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)) { print("範囲外の数字です。"); return; }
+          if(isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)){ print("範囲外の数字です。"); return; }
           if(num===correct){ const win=bet*multi; money+=win; print(`🎯 当たり！${multi}倍で ${win} 円獲得！`); }
           else{ print(`❌ はずれ…当たりは ${correct} でした。`); }
           print(`現在の所持金: ${money} 円\n`);
           round++; state=2;
           break;
-
         default:
           print("ゲームを再読み込みしてください。");
           break;
