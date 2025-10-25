@@ -389,7 +389,7 @@ img.img-fluid {
     order: -1;
     width: 100%;
     max-width: 720px;
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.12rem;
     text-align: center;
     background: rgba(0,0,0,0.35);
   }
