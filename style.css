@@ -303,7 +303,10 @@ img.img-fluid {
 
 
 
-
+.video-wrapper,
+.video-wrapper figure {
+  position: relative;
+}
 
 
 /* 動画＋キャプション共通（整理済み） */
