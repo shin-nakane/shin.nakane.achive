@@ -22,13 +22,11 @@ permalink: /projects/animal-iot/
 PIRセンサは赤外線を常にモニターし、モニター範囲内の状態に変化があれば１をなければ０を返します。
 これを用いて、赤外線の動きを検知したらLED点灯しカメラで撮影をするようにして、
 自動で近づいてきた動物を撮影するシステムを開発しました。
-<figure class="video-block">
-  <div class="video-wrapper video-small">
-    <video controls playsinline poster="{{ '/images/iot.jpg' | relative_url }}">
-      <source src="{{ '/videos/animal-iott.mp4' | relative_url }}" type="video/mp4">
-      ブラウザが video タグをサポートしていません。
-    </video>
-  </div>
+<figure class="video-wrapper video-small">
+  <video controls playsinline poster="{{ '/images/iot.jpg' | relative_url }}">
+    <source src="{{ '/videos/animal-iott.mp4' | relative_url }}" type="video/mp4">
+    ブラウザが video タグをサポートしていません。
+  </video>
   <figcaption class="video-desc">
     実験概要：PIRセンサでトリガーして撮影した映像（合計設置5日間）。音声あり／野生動物の動きの例を確認できます。撮影日時や設定はREADME参照。
   </figcaption>
