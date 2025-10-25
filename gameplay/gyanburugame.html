@@ -9,40 +9,99 @@ permalink: /gameplay/
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ギャンブル道場</title>
+  <title>🎲 ギャンブル道場 🎲</title>
   <style>
     body {
-      font-family: "Yu Gothic", sans-serif;
-      background: #111;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #000 0%, #111 100%);
       color: #0f0;
-      padding: 20px;
+      font-family: "Yu Gothic", monospace;
     }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #0f0;
+      text-shadow: 0 0 10px #0f0;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #0f0; }
+      to { text-shadow: 0 0 20px #6f6; }
+    }
+
+    #game-container {
+      background: rgba(0, 20, 0, 0.8);
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 20px #0f0;
+    }
+
     #log {
       white-space: pre-line;
-      margin-bottom: 20px;
+      background: #000;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #0f0;
+      height: 200px;
+      overflow-y: auto;
+      font-size: 0.95rem;
     }
+
     input, button {
       font-size: 1rem;
       margin-top: 10px;
-      padding: 8px;
+      padding: 10px;
       border-radius: 5px;
       border: none;
+      width: 100%;
+      box-sizing: border-box;
     }
+
+    input {
+      background: #111;
+      color: #0f0;
+      border: 1px solid #0f0;
+    }
+
     button {
       background-color: #0f0;
       color: #111;
+      font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s;
     }
+
     button:hover {
       background-color: #6f6;
+      transform: scale(1.03);
+    }
+
+    footer {
+      margin-top: 20px;
+      color: #0a0;
+      font-size: 0.8rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <h1>🎲 ギャンブル道場 🎲</h1>
-  <div id="log">Press「スタート」！</div>
-  <input id="input" type="text" placeholder="ここに入力…" />
-  <button id="btn">スタート</button>
+  <div id="game-container">
+    <div id="log">Press「スタート」！</div>
+    <input id="input" type="text" placeholder="ここに入力…" />
+    <button id="btn">スタート</button>
+  </div>
+  <footer>© 2025 ギャンブル道場</footer>
 
   <script>
     let state = 0;
@@ -87,7 +146,7 @@ permalink: /gameplay/
 
         case 2:
           if (money <= 0) {
-            print("Game Over! 所持金がなくなりました。");
+            print("💀 Game Over! 所持金がなくなりました。");
             state = -1;
             return;
           }
