@@ -419,3 +419,24 @@ img.img-fluid {
     border-radius: 6px;
   }
 }
+
+
+
+/* 画像キャプション */
+.figure {
+  margin: 1rem auto;
+  max-width: 900px;
+  text-align: center;
+}
+.figure img.img-fluid {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+.figure-caption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #ccc; /* 好みに合わせて色を変更 */
+}
