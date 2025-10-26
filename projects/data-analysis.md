@@ -13,16 +13,18 @@ permalink: /projects/data-analysis/
 そしてその結果を見てモデルを改良、また分析と繰り返して開発を行います。
 
 
+## GPPの様子
+
 <figure class="figure">
   <img class="img-fluid" src="{{ '/images/gppdaily.png' | relative_url }}" alt="データ分析図">
   <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
 </figure>
 コードはこちら: [dailychange.py]({{ '/code/dailymap.py' | relative_url }})
-[詳細を見る]({{ '/code/dailymap/' | relative_url }})
+
 
 
 <figure class="figure">
   <img class="img-fluid" src="{{ '/images/yearly_change.png' | relative_url }}" alt="データ分析図">
-  <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
+  <figcaption class="figure-caption">図：1日の全球GPP合計の季節変化</figcaption>
 </figure>
-コードはこちら: [yearly_change.py]({{ '/code/yearly_change.py' | relative_url }})
+[詳細を見る]({{ '/code/yearly_change/' | relative_url }})
