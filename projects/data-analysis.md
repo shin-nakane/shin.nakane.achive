@@ -17,4 +17,12 @@ permalink: /projects/data-analysis/
   <img class="img-fluid" src="{{ '/images/gppdaily.png' | relative_url }}" alt="データ分析図">
   <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
 </figure>
-ダウンロード: [analyze.py]({{ '/code/dailymap.py' | relative_url }})
+コードはこちら: [dailychange.py]({{ '/code/dailymap.py' | relative_url }})
+[詳細を見る]({{ '/code/dailymap/' | relative_url }})
+
+
+<figure class="figure">
+  <img class="img-fluid" src="{{ '/images/yearly_change.png' | relative_url }}" alt="データ分析図">
+  <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
+</figure>
+コードはこちら: [yearly_change.py]({{ '/code/yearly_change.py' | relative_url }})
