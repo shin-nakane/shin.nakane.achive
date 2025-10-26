@@ -440,3 +440,24 @@ img.img-fluid {
   font-size: 0.95rem;
   color: #000; /* 好みに合わせて色を変更 */
 }
+
+/* コードブロックを中央寄せして他コンテンツと揃える */
+.highlight {
+  max-width: 90%;          /* ページ幅の90%以内に制限（必要に応じて80%などに） */
+  margin: 1.5em auto;      /* 上下余白＋中央寄せ */
+  border-radius: 10px;     /* 角を少し丸く */
+  background: #1e1e1e;     /* 背景（テーマに合わせて変更可） */
+  color: #eee;             /* 文字色 */
+  overflow-x: auto;        /* スマホでも横スクロール可能に */
+  padding: 1em;            /* 内側の余白 */
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 600px) {
+  .highlight {
+    max-width: 95%;
+    font-size: 0.9em; /* 文字を少し小さく */
+    padding: 0.8em;
+  }
+}
