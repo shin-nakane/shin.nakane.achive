@@ -4,7 +4,6 @@ title: ギャンブルゲームプレイ | 中根進之介
 permalink: /gameplay/
 ---
 
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -47,7 +46,6 @@ permalink: /gameplay/
       background: rgba(0,0,0,0.8);
       box-shadow: 0 0 20px #0ff;
       display: none;
-
     }
 
     #log {
@@ -120,7 +118,8 @@ permalink: /gameplay/
     function next(message, nextState) {
       print(message);
       state = nextState;
-      input.value = "";
+      input.value = ""; // ★毎回クリア
+      input.focus();    // 入力欄にフォーカス
     }
 
     function randomInt(max) {
@@ -128,6 +127,7 @@ permalink: /gameplay/
     }
 
     function gameAction(val) {
+      input.value = ""; // ★入力欄を毎回クリア
       switch (state) {
         case 0:
           next("あなたの所持金をランダムに決定します。好きな整数を入力してください:", 1);
@@ -164,11 +164,23 @@ permalink: /gameplay/
 
         case 5:
           const num = parseInt(val);
-          if (isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)) { print("範囲外の数字です。"); return; }
-          if(num===correct){ const win=bet*multi; money+=win; print(`🎯 当たり！${multi}倍で ${win} 円獲得！`); }
-          else{ print(`❌ はずれ…当たりは ${correct} でした。`); }
+          if (isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)) { 
+            print("範囲外の数字です。"); 
+            return; 
+          }
+          if(num===correct){ 
+            const win=bet*multi; 
+            money+=win; 
+            print(`🎯 当たり！${multi}倍で ${win} 円獲得！`); 
+          } else { 
+            print(`❌ はずれ…当たりは ${correct} でした。`); 
+          }
           print(`現在の所持金: ${money} 円\n`);
-          round++; state=2;
+          round++; 
+          state=2;
+
+          input.value = ""; // ★ここでもクリア
+          input.focus();    // ★フォーカスを戻す
           break;
 
         default:
@@ -184,6 +196,7 @@ permalink: /gameplay/
       document.getElementById("start-screen").style.display="none";
       document.getElementById("container").style.display="block";
       print("ようこそギャンブル道場へ！");
+      input.focus(); // ★開始時も入力欄にフォーカス
     });
   </script>
 </body>
