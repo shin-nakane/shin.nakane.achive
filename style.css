@@ -438,5 +438,5 @@ img.img-fluid {
 .figure-caption {
   margin-top: 0.5rem;
   font-size: 0.95rem;
-  color: #ccc; /* 好みに合わせて色を変更 */
+  color: #000; /* 好みに合わせて色を変更 */
 }

@@ -14,6 +14,7 @@ permalink: /projects/data-analysis/
 
 
 <figure class="figure">
-  <img class="img-fluid" src="{{ '/images/gppmap.png' | relative_url }}" alt="データ分析図">
-  <figcaption class="figure-caption">図：全球分割と解析に用いたグリッド配置（緯度360×経度720）</figcaption>
+  <img class="img-fluid" src="{{ '/images/gppdaily.png' | relative_url }}" alt="データ分析図">
+  <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
 </figure>
+ダウンロード: [analyze.py]({{ '/code/dailymap.py' | relative_url }})
