@@ -158,6 +158,7 @@ permalink: /gameplay/
 
         case 4:
           bet = parseInt(val);
+          print(`かけたお金: ${bet} 円`);
           if (isNaN(bet) || bet <= 0 || bet > money) { print("無効な金額です。"); return; }
           money -= bet;
           if (level==="a"){ correct=randomInt(2); multi=2; }
@@ -168,6 +169,7 @@ permalink: /gameplay/
 
         case 5:
           const num = parseInt(val);
+          print(`選んだ数字: ${num}`);
           if (isNaN(num) || num<1 || num>(level==="a"?2:level==="b"?3:5)) { 
             print("範囲外の数字です。"); 
             return; 
