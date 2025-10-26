@@ -12,6 +12,7 @@ c言語を用いて簡単なゲームを作成しました。
 ## ギャンブルゲーム
 所持金をランダムに決定し、その所持金を使ってギャンブルを繰り返し
 １０万円に到達したらゲームクリアお金がなくなればゲームオーバーというゲームです<br>
-[▶️ ギャンブルゲーム]({{ '/gameplay/' | relative_url }})
+ぜひ遊んでみてください！！
+[▶️ ギャンブルゲームをプレイする]({{ '/gameplay/' | relative_url }})
 <img class="img-fluid" src="/shin.nakane.achive/images/testmap.png">
 
