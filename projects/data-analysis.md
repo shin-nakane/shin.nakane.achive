@@ -19,7 +19,7 @@ permalink: /projects/data-analysis/
   <img class="img-fluid" src="{{ '/images/gppdaily.png' | relative_url }}" alt="データ分析図">
   <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
 </figure>
-コードはこちら: [dailychange.py]({{ '/code/dailymap.py' | relative_url }})
+[コードを見る]({{ '/code/yearly_change/' | relative_url }})
 
 
 
@@ -27,4 +27,4 @@ permalink: /projects/data-analysis/
   <img class="img-fluid" src="{{ '/images/yearly_change.png' | relative_url }}" alt="データ分析図">
   <figcaption class="figure-caption">図：1日の全球GPP合計の季節変化</figcaption>
 </figure>
-[詳細を見る]({{ '/code/yearly_change/' | relative_url }})
+[コードを見る]({{ '/code/yearly_change/' | relative_url }})

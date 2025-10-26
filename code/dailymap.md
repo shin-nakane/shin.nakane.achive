@@ -4,24 +4,7 @@ title: pythoncode | 中根進之介
 permalink: /code/dailymap/
 ---
 
-<style>
-/* コードブロックの中央寄せと折り返し */
-main {
-  max-width: 900px; /* 他の記事と同じ幅に調整 */
-  margin: 0 auto;
-  padding: 1rem;
-}
 
-pre {
-  background: #1e1e1e; /* ダーク背景（任意） */
-  color: #eee;
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto; /* 横スクロール対応 */
-  white-space: pre-wrap; /* 長い行を折り返す */
-  word-wrap: break-word;
-}
-</style>
 
 ```python
 import numpy as np
