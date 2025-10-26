@@ -18,9 +18,12 @@ permalink: /projects/animal-iot/
 ・MP3Player<br>
 ・スピーカー<br>
 ・バッテリー<br>
-
+・三脚<br>
+・タッパ<br>
 
 <img class="img-fluid" src="/shin.nakane.achive/images/iotmap.png">
+[コードを見る]({{ '/code/animalcode/' | relative_url }})
+
 PIRセンサは赤外線を常にモニターし、モニター範囲内の状態に変化があれば１をなければ０を返します。
 これを用いて、赤外線の動きを検知したらLED点灯しカメラで撮影をするようにして、
 自動で近づいてきた動物を撮影するシステムを開発しました。
