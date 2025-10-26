@@ -149,6 +149,9 @@ permalink: /gameplay/
         case 3:
           if (!["a","b","c"].includes(val)) { print("無効な選択です。a,b,cから選んでください。"); return; }
           level = val;
+          if (level==="a"){ multi=2; }
+          else if(level==="b"){ multi=3; }
+          else { multi=5; }
           print(`ギャンブル場: ${level} (倍率: ${multi}倍)`);
           next(`賭け金を決めてください（現在の所持金: ${money} 円）:`, 4);
           break;
