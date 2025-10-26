@@ -19,7 +19,7 @@ permalink: /projects/data-analysis/
   <img class="img-fluid" src="{{ '/images/gppdaily.png' | relative_url }}" alt="データ分析図">
   <figcaption class="figure-caption">図：全球のある1日のGPPの様子</figcaption>
 </figure>
-[コードを見る]({{ '/code/yearly_change/' | relative_url }})
+[コードを見る]({{ '/code/dailymap/' | relative_url }})
 
 
 

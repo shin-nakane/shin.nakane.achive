@@ -1,7 +1,7 @@
 ---
 layout: default
 title: pythoncode | 中根進之介
-permalink: /code/dailymap/
+permalink: /code/yearly_change/
 ---
 
 ```python
