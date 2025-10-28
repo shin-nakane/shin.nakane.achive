@@ -7,7 +7,7 @@ permalink: /projects/research/
 # 研究内容
 
 シミュレーションモデルを用いて陸域生態系における物質循環について研究しています。
-[研究室website](https://terraecomod.wixsite.com/kato-lab-hokudai-j)
+[(陸域生態系モデリング研究室website)](https://terraecomod.wixsite.com/kato-lab-hokudai-j)
 日本を代表する陸域生態系モデルであるVISIT(Vegetation Integrative SImulator for Tarce gases)を使用し、オリジナルの炭素と窒素に加えリンの循環を加えたVISIT-CNPモデルの開発を行っています。
 
 
