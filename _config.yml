@@ -10,3 +10,4 @@ markdown: kramdown
 theme: minima # Jekyllの動作に必要な基本設定を補完
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
