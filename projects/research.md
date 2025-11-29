@@ -12,7 +12,7 @@ permalink: /projects/research/
 
 
 ## VISIT
-<img class="img-fluid" src="/shin.nakane.achive/images/visit.png">
+<img class="img-fluid" src="/biogioworld/images/visit.png">
 VISIT のオリジナルでは陸域における炭素、窒素、そして水の循環をシミュレーションします。
 植物と土壌を複数のプールにわけ、各物質のプール内の量やボプール間の移動量を計算します。
 全球の計算では地球を緯度方向に360分割、経度方向に720分割の合計259200個に分割し、
@@ -24,14 +24,14 @@ VISITはCによって記述されたプログラムにより構成されてい�
 窒素は光合成を駆動するRubiscoのカルボキシ化速度に関与し、リンはタンパク質の生成と維持を駆動する
 ribosomal RNAに関与します。
 つまり窒素とリンはともに植物の成長を制限する主要な要因であり、地球上での炭素循環に大きな影響を与えます。
-<img class="img-fluid" src="/shin.nakane.achive/images/nplimitation.png">
+<img class="img-fluid" src="/biogioworld/images/nplimitation.png">
 二酸化炭素は言うまでもなく温室効果ガスの主たるものの一つであり
 陸域における炭素貯蔵量は、地球温暖化を考える上でとても重要です。<br>
 さらにリンと窒素は人間活動によって、循環のバランスが大きく変化しています。
 農業の近代化に伴い、化学肥料の利用が世界で爆発的に増えました。それに伴い農地からの
 流出が増加し、湖沼の富栄養化を引き起こすなど水質汚染の原因となっています。
 地球の安定を維持する本質的な生物物理学的な過程に基づき、「地球で人類が安全に活動できる範囲」を科学的に定義したプラネタリー・バウンダリー（planetary boundaries：地球の限界）に基づく推定では、リンと窒素による汚染はすでに地球が支えられる量を超えているとされています。
-<img class="img-fluid" src="/shin.nakane.achive/images/planet.png">
+<img class="img-fluid" src="/biogioworld/images/planet.png">
 [国立環境研究所website](https://cger.nies.go.jp/cgernews/202012/360002.html)
 
 窒素、炭素、リンの循環を理解することは気候変動、水質汚染など地球規模の問題への対策を考える上で不可欠であり、

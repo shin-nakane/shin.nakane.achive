@@ -14,5 +14,5 @@ c言語を用いて簡単なゲームを作成しました。
 １０万円に到達したらゲームクリアお金がなくなればゲームオーバーというゲームです<br>
 ぜひ遊んでみてください！！
 [▶️ プレイはこちらから]({{ '/gameplay/' | relative_url }})
-<img class="img-fluid" src="/shin.nakane.achive/images/gyanburu.png">
+<img class="img-fluid" src="/biogioworld/images/gyanburu.png">
 

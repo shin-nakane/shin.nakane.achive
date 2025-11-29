@@ -1,7 +1,7 @@
 # サイト基本情報
 title: 中根進之介ポートフォリオ
 email: your.email@example.com
-description: 中根進之介のデータ分析、IoT、ゲーム開発に関するポートフォリオサイト
+description: 中根進之介のブログや勉強記録
 url: "https://shin-nakane.github.io" # ご指定のURL
 baseurl: "/biogeoworld" # ユーザーページなので空でOK
 

@@ -21,7 +21,7 @@ permalink: /projects/animal-iot/
 ・三脚<br>
 ・タッパ<br>
 
-<img class="img-fluid" src="/shin.nakane.achive/images/iotmap.png">
+<img class="img-fluid" src="/biogeoworld/images/iotmap.png">
 [コードを見る]({{ '/code/animalcode/' | relative_url }})
 
 PIRセンサは赤外線を常にモニターし、モニター範囲内の状態に変化があれば１をなければ０を返します。
