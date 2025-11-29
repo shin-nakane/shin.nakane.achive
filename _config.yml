@@ -11,3 +11,6 @@ theme: minima # Jekyllの動作に必要な基本設定を補完
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+ 
+# Google Search Console
+google_site_verification: "t53rD3NblQJyC2ZrIp0LezMwtM5Zn16gG_36R0lrRDA"
